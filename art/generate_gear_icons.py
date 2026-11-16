@@ -264,14 +264,14 @@ def _(c):
 
 @item("polarizing_filter")
 def _(c):
-    filter_base(c, (84, 96, 120), "B")
-    for k in range(-8, 9, 2):
-        c.line(3 + k, 12, 12 + k, 3, (130, 150, 190))
-    c.disc(8, 8, 5.2, None, False) if False else None
-    for a in range(0, 360, 30):
-        x, y = 8 + 6.3 * math.cos(math.radians(a)), 8 + 6.3 * math.sin(math.radians(a))
-        c.put(int(x), int(y), "k" if a % 60 else "M")
-    c.put(8, 1, "r")
+    filter_base(c, (78, 92, 124), "B")
+    for k in range(-6, 8, 4):
+        c.line(3 + k, 12, 12 + k, 3, (112, 132, 176))
+    c.line(5, 6, 7, 4, "h")
+    for a in range(0, 360, 20):
+        x, y = 8 + 6.4 * math.cos(math.radians(a)), 8 + 6.4 * math.sin(math.radians(a))
+        c.put(int(x), int(y), "M" if (a // 20) % 2 else "K")
+    c.put(8, 1, "r"); c.put(8, 14, "r")
 
 
 @item("nd_filter")
@@ -389,12 +389,15 @@ def _(c):
 
 @item("darkroom_tongs")
 def _(c):
-    c.line(5, 14, 10, 4, "M", 1)
-    c.line(11, 14, 6, 4, "m", 1)
-    c.line(6, 3, 4, 1, "l"); c.line(10, 3, 12, 1, "m")
-    c.rect(4, 13, 3, 2, "r"); c.rect(10, 13, 3, 2, "r")
-    c.put(8, 9, "k"); c.put(8, 8, "h")
-    c.rect(3, 0, 3, 2, "o"); c.rect(11, 0, 3, 2, "o")
+    c.line(3, 13, 9, 1, "M", 1)
+    c.line(4, 14, 14, 7, "m", 1)
+    c.put(2, 13, "K"); c.put(3, 14, "K"); c.put(4, 15, "K") if False else None
+    c.line(4, 10, 6, 7, "o", 2)
+    c.line(7, 12, 10, 10, "o", 2)
+    c.line(5, 11, 6, 9, "O"); c.line(8, 13, 10, 11, "O")
+    c.rect(8, 0, 2, 2, "l"); c.put(9, 0, "h")
+    c.rect(13, 6, 2, 2, "l"); c.put(14, 6, "h")
+    c.put(5, 9, "h")
 
 
 # ============================================================ 4. film production
