@@ -30,6 +30,13 @@ versionRange = "[4.8,)"
 ordering = "AFTER"
 side = "BOTH"
 
+[[dependencies.${mod_id}]]
+modId = "exposure"
+type = "required"
+versionRange = "[1.9,)"
+ordering = "AFTER"
+side = "BOTH"
+
 # Create ist nur optional (Phase 9).
 [[dependencies.${mod_id}]]
 modId = "create"

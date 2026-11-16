@@ -14,7 +14,7 @@ und Kino-Projektion. Namespace `cinecraft`, Lizenz MIT.
 ./gradlew runClient       # Spiel starten (noch nicht ausgeführt)
 ```
 
-Abhängigkeit: GeckoLib 4.9.3 (`software.bernie.geckolib:geckolib-neoforge-1.21.1`, Maven: Cloudsmith, siehe
+Abhängigkeiten: Exposure 1.9.21 (Pflicht, CineCraft ist ein Addon), GeckoLib 4.9.3 (`software.bernie.geckolib:geckolib-neoforge-1.21.1`, Maven: Cloudsmith, siehe
 `build.gradle` / `gradle.properties`). `neoforge.mods.toml` verlangt GeckoLib als Pflicht-Mod, Create ist optional.
 
 ## Inhalt
@@ -24,7 +24,7 @@ Abhängigkeit: GeckoLib 4.9.3 (`software.bernie.geckolib:geckolib-neoforge-1.21.
 | Blöcke | 8 | `registry/ModBlocks`, `block/` | `docs/MODELS.md` |
 | Basis-Items | 7 | `registry/ModItems` | `docs/MODELS.md` |
 | Gear-Items (Zubehör, Filter, Labor, Produktion, Bauteile) | 39 | `registry/ModGearItems` | `docs/GEAR_ITEMS.md` |
-| Animierte Modelle (GeckoLib) | 2 | `geo/`, `animations/`, `client/` | `docs/GECKOLIB.md` |
+| Animierte Modelle (GeckoLib) | 6 (Projektor, Klappe, 2 Kameras, Objektiv, Entwicklerstation) | `geo/`, `animations/`, `client/` | `docs/GECKOLIB.md` |
 | Architektur-Plan (Phasen 1–10) | – | – | `docs/ARCHITECTURE.md` |
 
 Alle Items und Blöcke stehen im Creative-Tab "CineCraft" (`ModCreativeTabs.MAIN`). Sprachdateien: `lang/en_us.json`,

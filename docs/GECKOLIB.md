@@ -54,6 +54,34 @@ Das Blockbench-Plugin schlägt `geckolib/models/...` vor; das ist die GeckoLib-5
    (`overwrite: true` bei Wiederholung).
 7. Java: Block Entity oder Item (`GeoBlockEntity`/`GeoItem`) plus Renderer.
 
+## Weitere animierte Modelle (2026-11-16)
+
+Alle per Blockbench-MCP aus den Java-Block-Modellen erzeugt (`art/bbmodels/*_animated.bbmodel`).
+
+| Modell | Bones | Animationen | Code |
+|---|---|---|---|
+| `analog_camera` (Item) | `shutter_button`, `rewind_knob`, `dial`, `body` | `idle` (Loop), `shoot` (0,6 s) | `GearGeoItem` |
+| `digital_camera` (Item) | `shutter`, `dial`, `lens_barrel`, `body` | `idle`, `shoot` (0,5 s, Tubus fährt kurz aus) | `GearGeoItem` |
+| `lens` (Item) | `focus_ring`, `front`, `body` | `idle`, `zoom` (0,9 s, Ring dreht, Front fährt aus) | `GearGeoItem` |
+| `developer_station` (Block) | `tank_a`, `tank_b`, `panel`, `body` | `work` (3 s, Loop, Tanks wippen) | `DeveloperStationBlock(+Entity)`, `DeveloperStationRenderer` |
+
+- `GearGeoItem(props, id, action)`: Loop `animation.<id>.idle`, einmalig `animation.<id>.<action>` bei Rechtsklick.
+  Renderer `GearItemRenderer` nimmt `geo/item/<id>.geo.json` und `textures/item/<id>_model.png`.
+- Die Item-Modelle `analog_camera.json`, `digital_camera.json`, `lens.json` nutzen `neoforge:separate_transforms`
+  mit Basis `builtin/entity` (GeckoLib) und Icon für Inventar/Rahmen. Die Java-Block-Originale heißen `*_3d.json`.
+- Geo-Dateien tragen `format_version 1.12.0` (von Hand gesetzt, siehe oben).
+
+## Exposure-Anbindung (Addon)
+
+CineCraft ist ein **Addon für Exposure** (Mod-ID `exposure`, 1.9.21, MIT, https://github.com/mortuusars/Exposure):
+Pflicht-Abhängigkeit in `neoforge.mods.toml` (`[1.9,)`), Build über Modrinth-Maven
+(`maven.modrinth:exposure:tjX0GpFW`, siehe `gradle.properties`).
+
+`compat/ExposureCompat` hört auf das serverseitige Exposure-Event `FrameAddedEvent` (Foto fertig). Hält der
+Fotograf eine CineCraft-Kamera (`analog_camera`, `digital_camera`) in einer Hand, spielt deren `shoot`-Animation.
+Es gibt keine Exposure-API zum Animieren fremder Items; die Exposure-Kamera selbst bleibt unverändert.
+Nicht umgesetzt: CineCraft-Kameras machen selbst Exposure-Fotos, Objektiv/Film-Kopplung.
+
 ## Risiken und offene Punkte
 
 - **Formatversion:** GeckoLib 4.9.3 kennt nur `1.12.0`, `1.14.0`, `1.21.0` (per `javap` am Jar geprüft). Das Plugin

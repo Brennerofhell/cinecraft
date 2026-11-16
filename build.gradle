@@ -16,6 +16,10 @@ repositories {
         url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
         content { includeGroup 'software.bernie.geckolib' }
     }
+    maven {
+        url = 'https://api.modrinth.com/maven'
+        content { includeGroup 'maven.modrinth' }
+    }
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -83,4 +87,6 @@ tasks.withType(JavaCompile).configureEach {
 
 dependencies {
     implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
+    // Exposure (Foto-Mod, MIT). CineCraft ist ein Addon dafuer. Modrinth-Version-ID statt Nummer (loaderspezifisch).
+    implementation "maven.modrinth:exposure:${exposure_version_id}"
 }

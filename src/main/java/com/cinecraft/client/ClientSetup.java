@@ -14,5 +14,6 @@ public final class ClientSetup {
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(ModBlockEntities.PROJECTOR.get(), ctx -> new ProjectorRenderer());
+        event.registerBlockEntityRenderer(ModBlockEntities.DEVELOPER_STATION.get(), ctx -> new DeveloperStationRenderer());
     }
 }

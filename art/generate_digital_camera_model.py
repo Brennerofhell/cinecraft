@@ -9,7 +9,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 RES = ROOT / "src/main/resources/assets/cinecraft"
 TEXP = RES / "textures/item/digital_camera_model.png"
-MODP = RES / "models/item/digital_camera.json"
+MODP = RES / "models/item/digital_camera_3d.json"
 UVP = ROOT / "art/uv_layouts/digital_camera.json"
 N = 64
 rng = random.Random(7)
@@ -49,13 +49,13 @@ for row in ORDER_ROWS:
         _, f, t, col = next(c for c in CUBES if c[0] == name)
         dx, dy, dz = (t[k] - f[k] for k in range(3))
         w, h = 2 * dz + 2 * dx, dz + dy
-        r = dict(top=(dz, 0, dx, dz), bottom=(dz + dx, 0, dx, dz), west=(0, dz, dz, dy), north=(dz, dz, dx, dy),
+        r = dict(up=(dz, 0, dx, dz), down=(dz + dx, 0, dx, dz), west=(0, dz, dz, dy), north=(dz, dz, dx, dy),
                  east=(dz + dx, dz, dz, dy), south=(2 * dz + dx, dz, dx, dy))
         for face, (rx, ry, rw, rh) in r.items():
             c = col
-            if face == "top":
+            if face == "up":
                 c = shade(col, 14)
-            elif face == "bottom":
+            elif face == "down":
                 c = shade(col, -14)
             fill(x + rx, y + ry, rw, rh, c)
         layout[name] = dict(x=x, y=y, w=w, h=h)
@@ -74,7 +74,7 @@ def reg(name, face):
     f, t = c[1], c[2]
     dx, dy, dz = (t[k] - f[k] for k in range(3))
     L = layout[name]
-    rx, ry, rw, rh = dict(north=(dz, dz, dx, dy), south=(2 * dz + dx, dz, dx, dy), top=(dz, 0, dx, dz),
+    rx, ry, rw, rh = dict(north=(dz, dz, dx, dy), south=(2 * dz + dx, dz, dx, dy), up=(dz, 0, dx, dz),
                           west=(0, dz, dz, dy), east=(dz + dx, dz, dz, dy))[face]
     return L["x"] + rx, L["y"] + ry, rw, rh
 
@@ -105,7 +105,7 @@ for j in range(bh):
         elif e == 1:
             px[bx + i, by + j] = (14, 14, 18, 255)
 # body top silver trim line (top face edge toward front)
-tx, ty, tw, th = reg("body", "top")
+tx, ty, tw, th = reg("body", "up")
 for i in range(tw):
     px[tx + i, ty] = (170, 176, 188, 255)
 # body front brand strip
@@ -124,7 +124,7 @@ if TEXP.exists() and not force:
     sys.exit(f"{TEXP} exists, use --force")
 im.save(TEXP)
 UVP.write_text(json.dumps(dict(texture="item/digital_camera_model", size=[N, N], regions=layout), indent=2))
-disp = json.loads((RES / "models/item/analog_camera.json").read_text()).get("display", {})
+disp = json.loads((RES / "models/item/analog_camera_3d.json").read_text()).get("display", {})
 MODP.write_text(json.dumps(dict(texture_size=[N, N],
                                 textures={"0": "cinecraft:item/digital_camera_model",
                                           "particle": "cinecraft:item/digital_camera_model"},

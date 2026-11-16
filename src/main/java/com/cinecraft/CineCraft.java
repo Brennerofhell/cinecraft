@@ -22,6 +22,8 @@ public class CineCraft {
         ModItems.ITEMS.register(modBus);
         ModCreativeTabs.TABS.register(modBus);
 
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(com.cinecraft.compat.ExposureCompat.class);
+
         container.registerConfig(Type.SERVER, ModConfig.SERVER_SPEC);
         container.registerConfig(Type.CLIENT, ModConfig.CLIENT_SPEC);
         LOGGER.info("CineCraft initialised");

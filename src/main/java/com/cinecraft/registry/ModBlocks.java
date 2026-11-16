@@ -39,7 +39,7 @@ public final class ModBlocks {
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).strength(1.0f).noOcclusion());
 
     public static final DeferredBlock<Block> DEVELOPER_STATION = BLOCKS.registerBlock("developer_station",
-            props -> new com.cinecraft.block.ShapedBlock(props, com.cinecraft.block.ShapedBlock.pixelBox(0, 0, 0, 16, 16, 16)),
+            com.cinecraft.block.DeveloperStationBlock::new,
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0f).noOcclusion());
 
     public static final DeferredBlock<Block> FILM_SHELF = BLOCKS.registerBlock("film_shelf",
