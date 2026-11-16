@@ -70,7 +70,7 @@ docs/                                  Dokumentation
 
 `analog_camera`, `digital_camera`, `lens`, `film_roll`, `film_cartridge`, `memory_card_small`, `clapperboard`.
 Die Kameras, das Objektiv, die Filmrolle, die Filmkassette und die digitale Kamera haben 3D-Modelle
-(`models/item/<name>.json`) und Icons (`<name>_icon.json`, noch **nicht eingebunden**). `memory_card_small` ist
+(`models/item/<name>_3d.json`) und Icons (`<name>_icon.json`); `<name>.json` verbindet beide per `neoforge:separate_transforms` (Inventar und Rahmen: Icon, sonst 3D). `memory_card_small` ist
 ein flaches Icon. `clapperboard` ist ein GeckoLib-Item (`clapperboard_static.json` ist das alte statische Modell).
 
 ## Workflow Texturen und Modelle
@@ -91,7 +91,7 @@ ein flaches Icon. `clapperboard` ist ein GeckoLib-Item (`clapperboard_static.jso
   (GUI, Hand), die 39 Gear-Items.
 - **GeckoLib-Format:** Geo-Dateien tragen `format_version 1.12.0` (von Hand gesetzt, siehe `docs/GECKOLIB.md`). Nach
   Neuexport aus Blockbench wieder anpassen.
-- **Icon-Modelle** (`*_icon.json`) sind nicht eingebunden; Items zeigen im Inventar das 3D-Modell.
+- **Icon-Modelle** sind für 5 Items eingebunden (`separate_transforms`), im Spiel ungeprüft.
 - **Gameplay:** keine. Phasen 3–10 aus `docs/ARCHITECTURE.md` stehen aus.
 - **Texturen:** Gear-Icons sind 16×16, die ersten Icons 32×32 (unterschiedliche Pixeldichte im Inventar).
 - `digital_camera_model.json`-Skript schreibt einen ungültigen `display.hand`-Eintrag, der von Hand entfernt wurde.
