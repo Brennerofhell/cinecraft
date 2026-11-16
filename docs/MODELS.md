@@ -7,6 +7,21 @@ Stand: 2026-11-16 · Minecraft 1.21.1 · NeoForge 21.1.252 · Namespace `cinecra
 > wurden bisher ausgeführt. Der Blockbench-MCP (`.mcp.json`, `http://localhost:3000/bb-mcp`) wurde nicht
 > verwendet, weil Blockbench nur ein aktives Projekt hat und parallele Agenten sich überschrieben hätten.
 
+> **Nachtrag 2026-11-16 (nach dem ersten Stand dieses Dokuments):**
+> - Blockbench-MCP wurde inzwischen verwendet: alle 13 Modelle plus `digital_camera` wurden in Blockbench geladen und
+>   angesehen (Proportionen, UVs, Orientierung ohne sichtbare Fehler). Im Spiel weiterhin ungeprüft.
+> - `analog_camera` (GUI `y=-35`) und `lens` (GUI `[25,-135,0]`) zeigen laut Blockbench-Display-Vorschau die
+>   Vorderseite; der Verdacht aus Abschnitt 5 ("zeigen evtl. die Rückseite") hat sich in der Vorschau nicht bestätigt.
+> - Neu: `digital_camera` hat ein 3D-Modell (`models/item/digital_camera.json`, Sheet `digital_camera_model.png`,
+>   Skript `art/generate_digital_camera_model.py`); das flache Icon heißt jetzt `digital_camera_icon.json`.
+> - Neu: `facing` (alle 8 Blöcke, Blockstates `facing=north|east|south|west`) und Hitboxen (`block/ShapedBlock`).
+>   Damit sind die Punkte "Kein `facing`" und "Hitboxen/VoxelShapes fehlen" in Abschnitt 5 erledigt (Stativ-Kopf
+>   ragt weiter über die Hitbox hinaus).
+> - Neu: `projector` und `clapperboard` sind GeckoLib-Modelle mit Animation, siehe `docs/GECKOLIB.md`. Die
+>   Java-Block-Modelle `projector.json` (Block) bleiben als Rückfall; `clapperboard_static.json` ist das alte Modell.
+> - `memory_card_small` bleibt ein flaches Icon-Modell.
+> - 39 weitere Items: `docs/GEAR_ITEMS.md`.
+
 ## 1. Ergebnis
 
 13 Java-Block-Modelle, direkt als JSON geschrieben (Pfad `src/main/resources/assets/cinecraft/`):
@@ -34,7 +49,7 @@ Zusätzlich:
   eingebunden** – die Items nutzen aktuell das 3D-Modell `models/item/<item>.json`.
 - Registrierung: `ModBlocks`, `ModItems`, `ModCreativeTabs`, `lang/en_us.json` (11 neue Einträge). `./gradlew compileJava --offline` lief erfolgreich.
 
-Die Items `digital_camera` und `memory_card_small` sind weiterhin Platzhalter ohne Modell.
+`digital_camera` und `memory_card_small` hatten ursprünglich kein Modell (siehe Nachtrag oben).
 
 ## 2. Vorgehen
 

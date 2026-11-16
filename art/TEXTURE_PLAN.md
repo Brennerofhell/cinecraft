@@ -37,11 +37,14 @@ entspiegelt, Rotglas, Bernstein) · Messing · Kunststoff schwarz/creme · Holz 
 | 9 | Entwicklerstation | block/developer_station.png | 64 | Edelstahl, Tanks, Etiketten, Rohre |
 | 10 | Filmregal | block/film_shelf.png | 64 | Holz, Winkel, Filmdosen, Schachteln |
 
-Nicht in dieser Phase: Texturen für bereits registrierte Platzhalter (`digital_camera`, `memory_card_small`, `screen`).
-(`tripod` ist registriert → `block/tripod.png` ist die erste Textur dafür.)
+Stand 2026-11-16: `digital_camera`, `memory_card_small`, `screen` haben inzwischen Texturen (`textures/item/digital_camera.png`,
+`memory_card_small.png`, `textures/block/screen.png`). Die digitale Kamera hat zusätzlich ein Modell-Sheet
+(`digital_camera_model.png`, `art/generate_digital_camera_model.py`). 39 weitere Icons (16×16):
+`art/generate_gear_icons.py`, Liste in `docs/GEAR_ITEMS.md`.
 
 ## Phasen
 1. ✅ Plan (diese Datei)
 2. ✅ Texturen generiert → `src/main/resources/assets/cinecraft/textures/`
 3. ✅ Geprüft (Vorschau, UV-Layouts)
 4. ✅ Modelle als Java-Block-JSON erzeugt (ohne Blockbench), validiert, reviewt – siehe `docs/MODELS.md`. Visuelle Prüfung im Spiel steht aus.
+5. ✅ Gear-Icons (39×, 16×16) und digitale Kamera (Sheet + 3D-Modell) ergänzt – siehe `docs/GEAR_ITEMS.md`, `docs/MODELS.md`.
