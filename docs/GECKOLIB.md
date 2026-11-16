@@ -68,3 +68,9 @@ Das Blockbench-Plugin schlägt `geckolib/models/...` vor; das ist die GeckoLib-5
   `clapperboard`-Projekt in Blockbench wurde später versehentlich überschrieben; die Exportdateien im Repo sind
   unversehrt. Neu aufbauen aus `geo/item/clapperboard.geo.json` (`from_geo_json`) ist möglich.
 - Weitere Animationsideen (nicht gebaut): Kamera-Auslöser, Objektiv-Zoom, Entwicklerstation.
+
+## Blockbench-Projekte (.bbmodel)
+
+Liegen in `art/bbmodels/` (Stand 2026-11-16). Beim Arbeiten mit Blockbench immer mitspeichern, auch bei neuen Modellen.
+`_clapperboard_overwritten.bbmodel` ist das versehentlich überschriebene Klappen-Projekt (nicht die Klappe) und
+`_review_scratch.bbmodel` ein Prüf-Projekt. Die Klappe neu aufbauen aus `geo/item/clapperboard.geo.json`.
