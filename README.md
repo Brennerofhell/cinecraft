@@ -89,8 +89,8 @@ ein flaches Icon. `clapperboard` ist ein GeckoLib-Item (`clapperboard_static.jso
 
 - **Test im Spiel:** Alles ungeprüft: Projektor-Animation, Klappen-Animation, `facing`, Hitboxen, Display-Transforms
   (GUI, Hand), die 39 Gear-Items.
-- **GeckoLib-Format:** Das Blockbench-Plugin exportiert Version 1.21.110 / `geckolib_format_version 2`. Ob
-  GeckoLib 4.9.3 das lädt, ist unbestätigt.
+- **GeckoLib-Format:** Geo-Dateien tragen `format_version 1.12.0` (von Hand gesetzt, siehe `docs/GECKOLIB.md`). Nach
+  Neuexport aus Blockbench wieder anpassen.
 - **Icon-Modelle** (`*_icon.json`) sind nicht eingebunden; Items zeigen im Inventar das 3D-Modell.
 - **Gameplay:** keine. Phasen 3–10 aus `docs/ARCHITECTURE.md` stehen aus.
 - **Texturen:** Gear-Icons sind 16×16, die ersten Icons 32×32 (unterschiedliche Pixeldichte im Inventar).

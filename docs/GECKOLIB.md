@@ -56,8 +56,9 @@ Das Blockbench-Plugin schlägt `geckolib/models/...` vor; das ist die GeckoLib-5
 
 ## Risiken und offene Punkte
 
-- **Formatversion:** Export mit `format_version 1.21.110` und `geckolib_format_version 2` (Plugin). Ob
-  GeckoLib 4.9.3 das akzeptiert, ist unbestätigt. Erster Verdacht, falls ein Modell nicht lädt.
+- **Formatversion:** GeckoLib 4.9.3 kennt nur `1.12.0`, `1.14.0`, `1.21.0` (per `javap` am Jar geprüft). Das Plugin
+  exportiert `1.21.110`; die beiden Geo-Dateien wurden von Hand auf `1.12.0` gesetzt. **Nach jedem Neuexport wieder
+  anpassen.** Im Spiel weiterhin ungetestet.
 - **GeckoLib-Version 4.9.3:** per Maven-Metadaten bestätigt, im Spiel nicht geprüft.
 - **API-Änderung 4.9:** `GeoItem.makeRenderer` existiert nicht mehr; Items melden den Renderer über
   `initializeClient`.
