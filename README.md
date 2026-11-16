@@ -1,11 +1,22 @@
 # CineCraft
 
-NeoForge-Mod für Minecraft 1.21.1 (NeoForge 21.1.252, Java 21): Film- und Fotokameras, Dunkelkammer, Filmproduktion
-und Kino-Projektion. Namespace `cinecraft`, Lizenz MIT.
+**Ein Addon für die Foto-Mod [Exposure](https://modrinth.com/mod/exposure)** (NeoForge 1.21.1): Film- und Fotokameras,
+Dunkelkammer, Filmproduktion und Kino-Projektion. Namespace `cinecraft`, Lizenz MIT.
 
-> **Stand:** Assets, Modelle, Registrierung und Animationen sind vorhanden. **Es gibt noch keine Spiellogik**
-> (Kamera, Entwickeln, Projektion). Alle Items sind Platzhalter ohne Verhalten. Im Spiel (`runClient`) wurde
-> bisher **nichts** visuell geprüft; geprüft wurde nur per Blockbench-Vorschau und `./gradlew compileJava`.
+## Features
+
+- **8 Blöcke:** Stativ, Leinwand, Projektor, Vergrößerer, Dunkelkammerlampe, Entwicklerschale, Entwicklerstation,
+  Filmregal. Alle mit Blickrichtung und passender Hitbox.
+- **46 Items:** analoge und digitale Kamera, Objektiv, Film, Filmklappe sowie 39 Zubehör-, Filter-, Labor-,
+  Produktions- und Bauteil-Items mit eigenen Pixel-Art-Icons. Deutsch und Englisch.
+- **6 animierte Modelle (GeckoLib):** Projektor (drehende Spulen), Filmklappe, beide Kameras (Auslöser), Objektiv
+  (Zoom), Entwicklerstation (wippende Tanks).
+- **Exposure-Anbindung:** Wenn Exposure ein Foto fertigstellt, spielt eine gehaltene CineCraft-Kamera ihre
+  Auslöser-Animation.
+
+> **Stand:** Assets, Modelle, Registrierung und Animationen sind vorhanden. **Es gibt noch keine eigene Spiellogik**
+> (Kamera, Entwickeln, Projektion); die Items sind Platzhalter ohne Verhalten. Im Spiel wurde bisher **nichts**
+> visuell geprüft, nur per Blockbench-Vorschau und `./gradlew compileJava`.
 
 [![Download](https://img.shields.io/github/v/release/Brennerofhell/exposure-revanced-photography?label=Download&style=for-the-badge&color=2ea44f&logo=github)](https://github.com/Brennerofhell/exposure-revanced-photography/releases/latest)
 
@@ -17,8 +28,6 @@ und Kino-Projektion. Namespace `cinecraft`, Lizenz MIT.
    - [GeckoLib](https://modrinth.com/mod/geckolib) 4.8 oder neuer (getestet gegen 4.9.3)
 3. In der Modrinth App eine Instanz **NeoForge 1.21.1** anlegen, im Reiter "Inhalt" die drei Jars hinzufügen, starten.
    Ordner von Hand: `%APPDATA%\ModrinthApp\profiles\<Instanz>\mods\` (Windows).
-
-> Frühe Version: im Spiel noch nicht getestet, keine Spiellogik (siehe unten).
 
 ## Bauen und starten
 
