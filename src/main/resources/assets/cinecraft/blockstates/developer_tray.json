@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "cinecraft:block/developer_tray"
+    },
+    "facing=east": {
+      "model": "cinecraft:block/developer_tray",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "cinecraft:block/developer_tray",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "cinecraft:block/developer_tray",
+      "y": 270
     }
   }
 }

@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "cinecraft:block/screen"
+    },
+    "facing=east": {
+      "model": "cinecraft:block/screen",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "cinecraft:block/screen",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "cinecraft:block/screen",
+      "y": 270
     }
   }
 }

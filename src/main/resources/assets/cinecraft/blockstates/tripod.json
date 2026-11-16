@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "cinecraft:block/tripod"
+    },
+    "facing=east": {
+      "model": "cinecraft:block/tripod",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "cinecraft:block/tripod",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "cinecraft:block/tripod",
+      "y": 270
     }
   }
 }

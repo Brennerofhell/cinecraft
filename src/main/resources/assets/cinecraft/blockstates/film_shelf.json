@@ -1,5 +1,19 @@
 {
   "variants": {
-    "": { "model": "cinecraft:block/film_shelf" }
+    "facing=north": {
+      "model": "cinecraft:block/film_shelf"
+    },
+    "facing=east": {
+      "model": "cinecraft:block/film_shelf",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "cinecraft:block/film_shelf",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "cinecraft:block/film_shelf",
+      "y": 270
+    }
   }
 }

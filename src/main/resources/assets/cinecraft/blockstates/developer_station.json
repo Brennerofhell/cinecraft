@@ -1,5 +1,19 @@
 {
   "variants": {
-    "": { "model": "cinecraft:block/developer_station" }
+    "facing=north": {
+      "model": "cinecraft:block/developer_station"
+    },
+    "facing=east": {
+      "model": "cinecraft:block/developer_station",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "cinecraft:block/developer_station",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "cinecraft:block/developer_station",
+      "y": 270
+    }
   }
 }

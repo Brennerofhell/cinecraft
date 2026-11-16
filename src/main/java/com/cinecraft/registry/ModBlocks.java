@@ -15,11 +15,11 @@ public final class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(CineCraft.MOD_ID);
 
     public static final DeferredBlock<Block> TRIPOD = BLOCKS.registerBlock("tripod",
-            props -> new com.cinecraft.block.ShapedBlock(props, com.cinecraft.block.ShapedBlock.box(4, 0, 4, 12, 16, 12)),
+            props -> new com.cinecraft.block.ShapedBlock(props, com.cinecraft.block.ShapedBlock.pixelBox(4, 0, 4, 12, 16, 12)),
             BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(2.0f).noOcclusion());
 
     public static final DeferredBlock<Block> SCREEN = BLOCKS.registerBlock("screen",
-            props -> new com.cinecraft.block.ShapedBlock(props, com.cinecraft.block.ShapedBlock.box(0, 0, 13, 16, 16, 16)),
+            props -> new com.cinecraft.block.ShapedBlock(props, com.cinecraft.block.ShapedBlock.pixelBox(0, 0, 13, 16, 16, 16)),
             BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(1.0f));
 
     public static final DeferredBlock<Block> PROJECTOR = BLOCKS.registerBlock("projector",
@@ -27,21 +27,23 @@ public final class ModBlocks {
             BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(2.0f).noOcclusion());
 
     public static final DeferredBlock<Block> DARKROOM_ENLARGER = BLOCKS.registerBlock("darkroom_enlarger",
-            props -> new com.cinecraft.block.ShapedBlock(props, com.cinecraft.block.ShapedBlock.box(1, 0, 0, 15, 15, 15)),
+            props -> new com.cinecraft.block.ShapedBlock(props, com.cinecraft.block.ShapedBlock.pixelBox(1, 0, 0, 15, 15, 15)),
             BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(2.0f).noOcclusion());
 
     public static final DeferredBlock<Block> DARKROOM_SAFELIGHT = BLOCKS.registerBlock("darkroom_safelight",
-            props -> new com.cinecraft.block.ShapedBlock(props, com.cinecraft.block.ShapedBlock.box(3, 0, 4, 13, 14, 12)),
+            props -> new com.cinecraft.block.ShapedBlock(props, com.cinecraft.block.ShapedBlock.pixelBox(3, 0, 4, 13, 14, 12)),
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(0.5f).noOcclusion());
 
     public static final DeferredBlock<Block> DEVELOPER_TRAY = BLOCKS.registerBlock("developer_tray",
-            props -> new com.cinecraft.block.ShapedBlock(props, com.cinecraft.block.ShapedBlock.box(0.5, 0, 0.5, 15.5, 4, 15.5)),
+            props -> new com.cinecraft.block.ShapedBlock(props, com.cinecraft.block.ShapedBlock.pixelBox(0.5, 0, 0.5, 15.5, 4, 15.5)),
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).strength(1.0f).noOcclusion());
 
-    public static final DeferredBlock<Block> DEVELOPER_STATION = BLOCKS.registerSimpleBlock("developer_station",
+    public static final DeferredBlock<Block> DEVELOPER_STATION = BLOCKS.registerBlock("developer_station",
+            props -> new com.cinecraft.block.ShapedBlock(props, com.cinecraft.block.ShapedBlock.pixelBox(0, 0, 0, 16, 16, 16)),
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0f).noOcclusion());
 
-    public static final DeferredBlock<Block> FILM_SHELF = BLOCKS.registerSimpleBlock("film_shelf",
+    public static final DeferredBlock<Block> FILM_SHELF = BLOCKS.registerBlock("film_shelf",
+            props -> new com.cinecraft.block.ShapedBlock(props, com.cinecraft.block.ShapedBlock.pixelBox(0, 0, 0, 16, 16, 16)),
             BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2.0f).noOcclusion());
 
     /** Registers a BlockItem; called from ModItems. */

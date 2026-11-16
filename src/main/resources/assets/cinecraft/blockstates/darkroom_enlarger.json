@@ -1,5 +1,19 @@
 {
   "variants": {
-    "": { "model": "cinecraft:block/darkroom_enlarger" }
+    "facing=north": {
+      "model": "cinecraft:block/darkroom_enlarger"
+    },
+    "facing=east": {
+      "model": "cinecraft:block/darkroom_enlarger",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "cinecraft:block/darkroom_enlarger",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "cinecraft:block/darkroom_enlarger",
+      "y": 270
+    }
   }
 }
