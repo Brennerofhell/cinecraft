@@ -34,6 +34,10 @@ public final class ModCreativeTabs {
                         output.accept(ModBlocks.DEVELOPER_TRAY.get());
                         output.accept(ModBlocks.DEVELOPER_STATION.get());
                         output.accept(ModBlocks.FILM_SHELF.get());
+                        for (ModGearItems.Category category : ModGearItems.Category.values()) {
+                            ModGearItems.BY_CATEGORY.getOrDefault(category, java.util.List.of())
+                                    .forEach(item -> output.accept(item.get()));
+                        }
                     })
                     .build());
 }

@@ -28,5 +28,6 @@ public final class ModItems {
 
     static {
         ModBlocks.registerBlockItems(ITEMS);
+        ModGearItems.register(ITEMS);
     }
 }
