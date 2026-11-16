@@ -1,0 +1,39 @@
+{
+  "texture": "cinecraft:block/developer_tray",
+  "size": [
+    32,
+    32
+  ],
+  "regions": {
+    "tray_inner": {
+      "x": 0,
+      "y": 0,
+      "w": 16,
+      "h": 16
+    },
+    "liquid": {
+      "x": 0,
+      "y": 20,
+      "w": 16,
+      "h": 12
+    },
+    "tray_outer": {
+      "x": 16,
+      "y": 0,
+      "w": 16,
+      "h": 16
+    },
+    "rim": {
+      "x": 0,
+      "y": 16,
+      "w": 32,
+      "h": 4
+    },
+    "tongs": {
+      "x": 16,
+      "y": 20,
+      "w": 16,
+      "h": 6
+    }
+  }
+}

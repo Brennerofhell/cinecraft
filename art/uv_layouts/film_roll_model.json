@@ -1,0 +1,39 @@
+{
+  "texture": "cinecraft:item/film_roll_model",
+  "size": [
+    32,
+    32
+  ],
+  "regions": {
+    "roll_side": {
+      "x": 0,
+      "y": 0,
+      "w": 16,
+      "h": 16
+    },
+    "flange_face": {
+      "x": 16,
+      "y": 0,
+      "w": 16,
+      "h": 16
+    },
+    "wound_strip": {
+      "x": 0,
+      "y": 16,
+      "w": 32,
+      "h": 8
+    },
+    "hub_strip": {
+      "x": 0,
+      "y": 24,
+      "w": 16,
+      "h": 6
+    },
+    "leader": {
+      "x": 16,
+      "y": 24,
+      "w": 16,
+      "h": 6
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "texture": "cinecraft:block/darkroom_safelight",
+  "size": [
+    32,
+    32
+  ],
+  "regions": {
+    "housing": {
+      "x": 0,
+      "y": 0,
+      "w": 16,
+      "h": 16
+    },
+    "red_glass": {
+      "x": 16,
+      "y": 0,
+      "w": 16,
+      "h": 16
+    },
+    "base": {
+      "x": 0,
+      "y": 16,
+      "w": 16,
+      "h": 8
+    },
+    "mount": {
+      "x": 16,
+      "y": 16,
+      "w": 16,
+      "h": 8
+    }
+  }
+}

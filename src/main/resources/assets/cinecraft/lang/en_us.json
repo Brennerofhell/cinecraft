@@ -1,0 +1,18 @@
+{
+  "itemGroup.cinecraft.main": "CineCraft",
+  "item.cinecraft.digital_camera": "Digital Film Camera",
+  "item.cinecraft.memory_card_small": "Memory Card (Small)",
+  "block.cinecraft.tripod": "Tripod",
+  "block.cinecraft.screen": "Projection Screen",
+  "item.cinecraft.analog_camera": "Analog Camera",
+  "item.cinecraft.film_roll": "Film Roll",
+  "item.cinecraft.film_cartridge": "Film Cartridge",
+  "item.cinecraft.lens": "Camera Lens",
+  "item.cinecraft.clapperboard": "Clapperboard",
+  "block.cinecraft.projector": "Film Projector",
+  "block.cinecraft.darkroom_enlarger": "Darkroom Enlarger",
+  "block.cinecraft.darkroom_safelight": "Darkroom Safelight",
+  "block.cinecraft.developer_tray": "Developer Tray",
+  "block.cinecraft.developer_station": "Developer Station",
+  "block.cinecraft.film_shelf": "Film Shelf"
+}

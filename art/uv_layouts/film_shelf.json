@@ -1,0 +1,57 @@
+{
+  "texture": "cinecraft:block/film_shelf",
+  "size": [
+    64,
+    64
+  ],
+  "regions": {
+    "wood_plank": {
+      "x": 0,
+      "y": 0,
+      "w": 32,
+      "h": 12
+    },
+    "wood_side": {
+      "x": 32,
+      "y": 0,
+      "w": 16,
+      "h": 12
+    },
+    "bracket": {
+      "x": 48,
+      "y": 0,
+      "w": 16,
+      "h": 12
+    },
+    "film_can_row": {
+      "x": 0,
+      "y": 12,
+      "w": 32,
+      "h": 16
+    },
+    "boxes": {
+      "x": 32,
+      "y": 12,
+      "w": 32,
+      "h": 16
+    },
+    "back_panel": {
+      "x": 0,
+      "y": 28,
+      "w": 32,
+      "h": 16
+    },
+    "shelf_edge": {
+      "x": 32,
+      "y": 28,
+      "w": 32,
+      "h": 4
+    },
+    "label_holder": {
+      "x": 32,
+      "y": 32,
+      "w": 16,
+      "h": 6
+    }
+  }
+}

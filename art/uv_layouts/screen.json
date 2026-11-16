@@ -1,0 +1,27 @@
+{
+  "texture": "cinecraft:block/screen",
+  "size": [
+    32,
+    32
+  ],
+  "regions": {
+    "canvas": {
+      "x": 0,
+      "y": 0,
+      "w": 24,
+      "h": 24
+    },
+    "frame": {
+      "x": 24,
+      "y": 0,
+      "w": 8,
+      "h": 24
+    },
+    "frame_edge": {
+      "x": 0,
+      "y": 24,
+      "w": 32,
+      "h": 8
+    }
+  }
+}

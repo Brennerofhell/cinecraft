@@ -1,0 +1,45 @@
+{
+  "texture": "cinecraft:item/film_cartridge_model",
+  "size": [
+    32,
+    32
+  ],
+  "regions": {
+    "can_body": {
+      "x": 0,
+      "y": 0,
+      "w": 32,
+      "h": 12
+    },
+    "label": {
+      "x": 0,
+      "y": 12,
+      "w": 32,
+      "h": 10
+    },
+    "cap_top": {
+      "x": 0,
+      "y": 22,
+      "w": 10,
+      "h": 10
+    },
+    "cap_bottom": {
+      "x": 10,
+      "y": 22,
+      "w": 10,
+      "h": 10
+    },
+    "felt_slot": {
+      "x": 20,
+      "y": 22,
+      "w": 12,
+      "h": 4
+    },
+    "leader": {
+      "x": 20,
+      "y": 26,
+      "w": 12,
+      "h": 6
+    }
+  }
+}

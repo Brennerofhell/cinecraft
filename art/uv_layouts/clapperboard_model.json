@@ -1,0 +1,45 @@
+{
+  "texture": "cinecraft:item/clapperboard_model",
+  "size": [
+    64,
+    64
+  ],
+  "regions": {
+    "slate": {
+      "x": 0,
+      "y": 0,
+      "w": 32,
+      "h": 24
+    },
+    "clapper_arm": {
+      "x": 32,
+      "y": 0,
+      "w": 32,
+      "h": 8
+    },
+    "clapper_bottom": {
+      "x": 32,
+      "y": 8,
+      "w": 32,
+      "h": 8
+    },
+    "hinge": {
+      "x": 0,
+      "y": 24,
+      "w": 8,
+      "h": 8
+    },
+    "edge_wood": {
+      "x": 8,
+      "y": 24,
+      "w": 24,
+      "h": 4
+    },
+    "chalk_text": {
+      "x": 32,
+      "y": 16,
+      "w": 32,
+      "h": 16
+    }
+  }
+}
