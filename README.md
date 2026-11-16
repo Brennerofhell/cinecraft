@@ -7,6 +7,19 @@ und Kino-Projektion. Namespace `cinecraft`, Lizenz MIT.
 > (Kamera, Entwickeln, Projektion). Alle Items sind Platzhalter ohne Verhalten. Im Spiel (`runClient`) wurde
 > bisher **nichts** visuell geprüft; geprüft wurde nur per Blockbench-Vorschau und `./gradlew compileJava`.
 
+[![Download](https://img.shields.io/github/v/release/Brennerofhell/exposure-revanced-photography?label=Download&style=for-the-badge&color=2ea44f&logo=github)](https://github.com/Brennerofhell/exposure-revanced-photography/releases/latest)
+
+## Download und Installation
+
+1. **[Neueste `cinecraft-*.jar` herunterladen](https://github.com/Brennerofhell/exposure-revanced-photography/releases/latest)** (unter "Assets").
+2. Zusätzlich nötig (jeweils die Version für NeoForge 1.21.1):
+   - [Exposure](https://modrinth.com/mod/exposure) 1.9.21 oder neuer
+   - [GeckoLib](https://modrinth.com/mod/geckolib) 4.8 oder neuer (getestet gegen 4.9.3)
+3. In der Modrinth App eine Instanz **NeoForge 1.21.1** anlegen, im Reiter "Inhalt" die drei Jars hinzufügen, starten.
+   Ordner von Hand: `%APPDATA%\ModrinthApp\profiles\<Instanz>\mods\` (Windows).
+
+> Frühe Version: im Spiel noch nicht getestet, keine Spiellogik (siehe unten).
+
 ## Bauen und starten
 
 ```
