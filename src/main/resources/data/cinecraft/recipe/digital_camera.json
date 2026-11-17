@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "I4I",
+    "526",
+    "III"
+  ],
+  "key": {
+    "2": {
+      "item": "cinecraft:precision_lens"
+    },
+    "4": {
+      "item": "cinecraft:camera_circuit"
+    },
+    "5": {
+      "item": "cinecraft:image_sensor"
+    },
+    "6": {
+      "item": "cinecraft:image_processor"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "cinecraft:digital_camera",
+    "count": 1
+  }
+}

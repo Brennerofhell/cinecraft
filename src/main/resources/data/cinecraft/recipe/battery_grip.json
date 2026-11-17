@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "I^I",
+    "I^I",
+    "ILI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "^": {
+      "item": "cinecraft:camera_battery"
+    }
+  },
+  "result": {
+    "id": "cinecraft:battery_grip",
+    "count": 1
+  }
+}

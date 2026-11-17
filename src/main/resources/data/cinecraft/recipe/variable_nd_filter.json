@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "cinecraft:nd_filter"
+    },
+    {
+      "item": "cinecraft:polarizing_filter"
+    },
+    {
+      "item": "minecraft:black_dye"
+    }
+  ],
+  "result": {
+    "id": "cinecraft:variable_nd_filter",
+    "count": 1
+  }
+}

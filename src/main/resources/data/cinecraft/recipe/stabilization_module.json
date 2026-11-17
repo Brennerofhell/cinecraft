@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IsI",
+    "R4R",
+    "IsI"
+  ],
+  "key": {
+    "4": {
+      "item": "cinecraft:camera_circuit"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "s": {
+      "item": "minecraft:slime_ball"
+    }
+  },
+  "result": {
+    "id": "cinecraft:stabilization_module",
+    "count": 1
+  }
+}

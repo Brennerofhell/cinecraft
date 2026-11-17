@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "III",
+    "I9I",
+    "III"
+  ],
+  "key": {
+    "9": {
+      "item": "cinecraft:film_roll"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "cinecraft:film_cartridge",
+    "count": 1
+  }
+}

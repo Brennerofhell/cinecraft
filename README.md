@@ -11,6 +11,7 @@ Dunkelkammer, Filmproduktion und Kino-Projektion. Namespace `cinecraft`, Lizenz 
   Produktions- und Bauteil-Items mit eigenen Pixel-Art-Icons. Deutsch und Englisch.
 - **6 animierte Modelle (GeckoLib):** Projektor (drehende Spulen), Filmklappe, beide Kameras (Auslöser), Objektiv
   (Zoom), Entwicklerstation (wippende Tanks).
+- **54 Rezepte, Block-Drops und Mining-Tags** (`docs/RECIPES.md`), Survival-tauglich.
 - **Exposure-Anbindung:** Wenn Exposure ein Foto fertigstellt, spielt eine gehaltene CineCraft-Kamera ihre
   Auslöser-Animation.
 
@@ -47,6 +48,7 @@ Abhängigkeiten: Exposure 1.9.21 (Pflicht, CineCraft ist ein Addon), GeckoLib 4.
 | Basis-Items | 7 | `registry/ModItems` | `docs/MODELS.md` |
 | Gear-Items (Zubehör, Filter, Labor, Produktion, Bauteile) | 39 | `registry/ModGearItems` | `docs/GEAR_ITEMS.md` |
 | Animierte Modelle (GeckoLib) | 6 (Projektor, Klappe, 2 Kameras, Objektiv, Entwicklerstation) | `geo/`, `animations/`, `client/` | `docs/GECKOLIB.md` |
+| Rezepte, Loot, Tags | 54 / 8 / 2 | `data/`, `tools/generate_data.py` | `docs/RECIPES.md` |
 | Architektur-Plan (Phasen 1–10) | – | – | `docs/ARCHITECTURE.md` |
 
 Alle Items und Blöcke stehen im Creative-Tab "CineCraft" (`ModCreativeTabs.MAIN`). Sprachdateien: `lang/en_us.json`,

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "III",
+    "IzI",
+    "I4I"
+  ],
+  "key": {
+    "4": {
+      "item": "cinecraft:camera_circuit"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "z": {
+      "item": "minecraft:note_block"
+    }
+  },
+  "result": {
+    "id": "cinecraft:audio_recorder",
+    "count": 1
+  }
+}

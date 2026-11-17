@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "  I",
+    " IX",
+    "IXr"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "X": {
+      "item": "minecraft:white_dye"
+    },
+    "r": {
+      "item": "minecraft:red_dye"
+    }
+  },
+  "result": {
+    "id": "cinecraft:directors_megaphone",
+    "count": 1
+  }
+}

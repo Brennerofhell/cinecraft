@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LLL",
+    "LHL",
+    "LLL"
+  ],
+  "key": {
+    "H": {
+      "item": "minecraft:iron_block"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "result": {
+    "id": "cinecraft:camera_backpack",
+    "count": 1
+  }
+}

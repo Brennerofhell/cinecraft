@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "WWW",
+    "9 9",
+    "WWW"
+  ],
+  "key": {
+    "9": {
+      "item": "cinecraft:film_roll"
+    },
+    "W": {
+      "item": "minecraft:oak_planks"
+    }
+  },
+  "result": {
+    "id": "cinecraft:film_shelf",
+    "count": 1
+  }
+}

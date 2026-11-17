@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "TBT",
+    "TST",
+    "TBT"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:black_dye"
+    },
+    "S": {
+      "item": "minecraft:string"
+    },
+    "T": {
+      "item": "minecraft:paper"
+    }
+  },
+  "result": {
+    "id": "cinecraft:film_roll",
+    "count": 2
+  }
+}

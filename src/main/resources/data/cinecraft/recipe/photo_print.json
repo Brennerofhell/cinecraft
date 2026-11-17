@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "cinecraft:photo_paper"
+    },
+    {
+      "item": "cinecraft:developer_bottle"
+    }
+  ],
+  "result": {
+    "id": "cinecraft:photo_print",
+    "count": 1
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " R ",
+    "IuI",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "u": {
+      "item": "minecraft:stone_button"
+    }
+  },
+  "result": {
+    "id": "cinecraft:remote_shutter",
+    "count": 1
+  }
+}

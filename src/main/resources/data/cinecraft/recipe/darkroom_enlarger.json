@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " 1 ",
+    " I ",
+    "WIW"
+  ],
+  "key": {
+    "1": {
+      "item": "cinecraft:optical_glass"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "W": {
+      "item": "minecraft:oak_planks"
+    }
+  },
+  "result": {
+    "id": "cinecraft:darkroom_enlarger",
+    "count": 1
+  }
+}

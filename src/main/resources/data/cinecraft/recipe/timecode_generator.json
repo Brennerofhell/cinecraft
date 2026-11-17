@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IRI",
+    "m4e",
+    "III"
+  ],
+  "key": {
+    "4": {
+      "item": "cinecraft:camera_circuit"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "e": {
+      "item": "minecraft:repeater"
+    },
+    "m": {
+      "item": "minecraft:comparator"
+    }
+  },
+  "result": {
+    "id": "cinecraft:timecode_generator",
+    "count": 1
+  }
+}

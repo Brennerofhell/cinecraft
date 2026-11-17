@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "III",
+    "#c$",
+    "IHI"
+  ],
+  "key": {
+    "#": {
+      "item": "cinecraft:developer_bottle"
+    },
+    "$": {
+      "item": "cinecraft:fixer_bottle"
+    },
+    "H": {
+      "item": "minecraft:iron_block"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "c": {
+      "item": "minecraft:cauldron"
+    }
+  },
+  "result": {
+    "id": "cinecraft:developer_station",
+    "count": 1
+  }
+}

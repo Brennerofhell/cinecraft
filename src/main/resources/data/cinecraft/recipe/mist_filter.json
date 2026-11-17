@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " N ",
+    "T1T",
+    " N "
+  ],
+  "key": {
+    "1": {
+      "item": "cinecraft:optical_glass"
+    },
+    "N": {
+      "item": "minecraft:iron_nugget"
+    },
+    "T": {
+      "item": "minecraft:paper"
+    }
+  },
+  "result": {
+    "id": "cinecraft:mist_filter",
+    "count": 1
+  }
+}

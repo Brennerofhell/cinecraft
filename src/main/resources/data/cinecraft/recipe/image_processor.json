@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "D4D",
+    "4A4",
+    "D4D"
+  ],
+  "key": {
+    "4": {
+      "item": "cinecraft:camera_circuit"
+    },
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "D": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "id": "cinecraft:image_processor",
+    "count": 1
+  }
+}

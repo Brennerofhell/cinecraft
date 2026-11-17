@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "III",
+    "IrI",
+    "IOI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "O": {
+      "item": "minecraft:redstone_torch"
+    },
+    "r": {
+      "item": "minecraft:red_dye"
+    }
+  },
+  "result": {
+    "id": "cinecraft:darkroom_safelight",
+    "count": 1
+  }
+}

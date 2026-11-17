@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " N ",
+    "A1A",
+    " N "
+  ],
+  "key": {
+    "1": {
+      "item": "cinecraft:optical_glass"
+    },
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "N": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "result": {
+    "id": "cinecraft:polarizing_filter",
+    "count": 1
+  }
+}

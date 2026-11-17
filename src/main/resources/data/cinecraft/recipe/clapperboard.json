@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "XrX",
+    "kkk",
+    "kkk"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:white_dye"
+    },
+    "k": {
+      "item": "minecraft:black_wool"
+    },
+    "r": {
+      "item": "minecraft:red_dye"
+    }
+  },
+  "result": {
+    "id": "cinecraft:clapperboard",
+    "count": 1
+  }
+}

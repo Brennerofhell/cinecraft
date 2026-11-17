@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " N ",
+    "N1N",
+    " N "
+  ],
+  "key": {
+    "1": {
+      "item": "cinecraft:optical_glass"
+    },
+    "N": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "result": {
+    "id": "cinecraft:uv_filter",
+    "count": 1
+  }
+}

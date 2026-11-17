@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "www",
+    "www",
+    "KKK"
+  ],
+  "key": {
+    "K": {
+      "item": "minecraft:stick"
+    },
+    "w": {
+      "item": "minecraft:white_wool"
+    }
+  },
+  "result": {
+    "id": "cinecraft:screen",
+    "count": 1
+  }
+}

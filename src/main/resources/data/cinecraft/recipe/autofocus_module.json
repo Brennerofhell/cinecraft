@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "I4I",
+    "I2I",
+    "IRI"
+  ],
+  "key": {
+    "2": {
+      "item": "cinecraft:precision_lens"
+    },
+    "4": {
+      "item": "cinecraft:camera_circuit"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "id": "cinecraft:autofocus_module",
+    "count": 1
+  }
+}

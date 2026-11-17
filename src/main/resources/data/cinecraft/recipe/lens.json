@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "I1I",
+    "I2I",
+    "III"
+  ],
+  "key": {
+    "1": {
+      "item": "cinecraft:optical_glass"
+    },
+    "2": {
+      "item": "cinecraft:precision_lens"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "cinecraft:lens",
+    "count": 1
+  }
+}

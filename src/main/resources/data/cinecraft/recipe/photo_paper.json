@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "TTT",
+    "TXT",
+    "TTT"
+  ],
+  "key": {
+    "T": {
+      "item": "minecraft:paper"
+    },
+    "X": {
+      "item": "minecraft:white_dye"
+    }
+  },
+  "result": {
+    "id": "cinecraft:photo_paper",
+    "count": 4
+  }
+}

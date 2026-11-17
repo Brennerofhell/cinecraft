@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "QDQ",
+    "D4D",
+    "QDQ"
+  ],
+  "key": {
+    "4": {
+      "item": "cinecraft:camera_circuit"
+    },
+    "D": {
+      "item": "minecraft:gold_ingot"
+    },
+    "Q": {
+      "item": "minecraft:quartz"
+    }
+  },
+  "result": {
+    "id": "cinecraft:image_sensor",
+    "count": 1
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "cinecraft:tripod",
+    "cinecraft:projector",
+    "cinecraft:darkroom_enlarger",
+    "cinecraft:darkroom_safelight",
+    "cinecraft:developer_tray",
+    "cinecraft:developer_station"
+  ]
+}

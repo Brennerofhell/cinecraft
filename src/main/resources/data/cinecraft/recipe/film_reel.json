@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " I ",
+    "I9I",
+    " I "
+  ],
+  "key": {
+    "9": {
+      "item": "cinecraft:film_roll"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "cinecraft:film_reel",
+    "count": 1
+  }
+}

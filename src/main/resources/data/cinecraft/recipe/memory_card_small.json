@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "nn ",
+    "I4I",
+    "III"
+  ],
+  "key": {
+    "4": {
+      "item": "cinecraft:camera_circuit"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "n": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "result": {
+    "id": "cinecraft:memory_card_small",
+    "count": 2
+  }
+}
