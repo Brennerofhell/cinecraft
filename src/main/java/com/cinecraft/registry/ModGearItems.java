@@ -21,7 +21,12 @@ public final class ModGearItems {
     public static final Map<Category, List<DeferredItem<Item>>> BY_CATEGORY = new EnumMap<>(Category.class);
 
     private static void add(DeferredRegister.Items items, Category category, String id, int stackSize) {
-        DeferredItem<Item> item = items.registerSimpleItem(id, new Item.Properties().stacksTo(stackSize));
+        Item.Properties props = new Item.Properties().stacksTo(stackSize);
+        // Chemicals come back as an empty glass bottle when used up in a recipe (e.g. film developing).
+        if (id.equals("developer_bottle") || id.equals("fixer_bottle")) {
+            props = props.craftRemainder(net.minecraft.world.item.Items.GLASS_BOTTLE);
+        }
+        DeferredItem<Item> item = items.registerSimpleItem(id, props);
         BY_CATEGORY.computeIfAbsent(category, k -> new ArrayList<>()).add(item);
     }
 

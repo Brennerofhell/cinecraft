@@ -1,0 +1,32 @@
+{
+  "type": "exposure:film_developing",
+  "film": {
+    "tag": "exposure:color_film_rolls"
+  },
+  "ingredients": [
+    [
+      {
+        "item": "cinecraft:developer_bottle"
+      }
+    ],
+    [
+      {
+        "item": "cinecraft:fixer_bottle"
+      }
+    ],
+    [
+      {
+        "type": "neoforge:components",
+        "items": "minecraft:potion",
+        "components": {
+          "minecraft:potion_contents": {
+            "potion": "minecraft:water"
+          }
+        }
+      }
+    ]
+  ],
+  "result": {
+    "id": "exposure:developed_color_film"
+  }
+}

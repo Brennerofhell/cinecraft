@@ -102,6 +102,18 @@ R["developer_tray"] = shaped("developer_tray", ["I I", "III"])
 R["developer_station"] = shaped("developer_station", ["III", "#c$", "IHI"])
 R["film_shelf"] = shaped("film_shelf", ["WWW", "9 9", "WWW"])
 
+# --- film developing with CineCraft chemicals (recipe type of the Exposure mod, exposure:film_developing)
+WATER = {"type": "neoforge:components", "items": "minecraft:potion",
+         "components": {"minecraft:potion_contents": {"potion": "minecraft:water"}}}
+DEV = {"item": "cinecraft:developer_bottle"}
+FIX = {"item": "cinecraft:fixer_bottle"}
+DEVELOPING = {
+    "black_and_white_film_developing": ("exposure:black_and_white_film_rolls",
+                                        "exposure:developed_black_and_white_film", [[DEV], [FIX]]),
+    "color_film_developing": ("exposure:color_film_rolls", "exposure:developed_color_film",
+                              [[DEV], [FIX], [WATER]]),
+}
+
 BLOCKS = ["tripod", "screen", "projector", "darkroom_enlarger", "darkroom_safelight", "developer_tray",
           "developer_station", "film_shelf"]
 WOODEN = {"screen", "film_shelf"}
@@ -114,6 +126,9 @@ def write(path, obj):
 
 for name, rec in R.items():
     write(DATA / "cinecraft/recipe" / f"{name}.json", rec)
+for name, (tag, result, ingredients) in DEVELOPING.items():
+    write(DATA / "cinecraft/recipe" / f"{name}.json", {"type": "exposure:film_developing", "film": {"tag": tag},
+                                                       "ingredients": ingredients, "result": {"id": result}})
 for b in BLOCKS:
     write(DATA / "cinecraft/loot_table/blocks" / f"{b}.json", {
         "type": "minecraft:block",
@@ -125,4 +140,4 @@ write(DATA / "minecraft/tags/block/mineable/pickaxe.json",
       {"replace": False, "values": [f"cinecraft:{b}" for b in BLOCKS if b not in WOODEN]})
 write(DATA / "minecraft/tags/block/mineable/axe.json",
       {"replace": False, "values": [f"cinecraft:{b}" for b in BLOCKS if b in WOODEN]})
-print(len(R), "recipes,", len(BLOCKS), "loot tables")
+print(len(R) + len(DEVELOPING), "recipes,", len(BLOCKS), "loot tables")

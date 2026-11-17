@@ -4,7 +4,7 @@ Stand 2026-11-17 · erzeugt von `tools/generate_data.py` (Datei bearbeiten, Skri
 **Im Spiel ungetestet.** Die Rezepte sind Platzhalter-Balancing aus Vanilla-Zutaten; Komponenten verketten sich
 (`optical_glass` → `precision_lens` → Objektiv/Kamera, `camera_circuit` + `image_sensor` → digitale Kamera).
 
-- **54 Rezepte** (`data/cinecraft/recipe/`): alle 8 Blöcke und alle 46 Items.
+- **54 Crafting-Rezepte + 2 Entwicklungs-Rezepte** (`data/cinecraft/recipe/`): alle 8 Blöcke und alle 46 Items.
 - **Loot-Tabellen** (`data/cinecraft/loot_table/blocks/`): jeder Block droppt sich selbst.
 - **Mining-Tags** (`data/minecraft/tags/block/mineable/`): Leinwand und Filmregal mit Axt, übrige Blöcke mit Spitzhacke.
 - Format 1.21.1: Ordner `recipe` / `loot_table` / `tags/block` im Singular, Ergebnis als `{"id", "count"}`.
@@ -67,3 +67,17 @@ Stand 2026-11-17 · erzeugt von `tools/generate_data.py` (Datei bearbeiten, Skri
 | `variable_nd_filter` | 1 | formlos |  | nd_filter, polarizing_filter, black_dye |
 | `video_tape` | 1 | geformt | III/BCB/III | `B`=black_dye, `C`=copper_ingot, `I`=iron_ingot |
 | `wireless_microphone` | 1 | geformt | ·R·/NIN/·B· | `B`=black_dye, `I`=iron_ingot, `N`=iron_nugget, `R`=redstone |
+
+## Filmentwicklung mit CineCraft-Chemikalien
+
+Zwei Rezepte vom Typ `exposure:film_developing` (Rezepttyp der Exposure-Mod, Film-Daten gehen automatisch auf den
+entwickelten Film über). Sie gelten **zusätzlich** zu Exposures eigenen Trank-Rezepten, die weiter funktionieren.
+Werkbank, Zutaten formlos:
+
+| Rezept | Film (Tag) | Zutaten | Ergebnis |
+|---|---|---|---|
+| `black_and_white_film_developing` | `exposure:black_and_white_film_rolls` | `developer_bottle`, `fixer_bottle` | `exposure:developed_black_and_white_film` |
+| `color_film_developing` | `exposure:color_film_rolls` | `developer_bottle`, `fixer_bottle`, Wasserflasche | `exposure:developed_color_film` |
+
+`developer_bottle` und `fixer_bottle` geben beim Verbrauch eine leere Glasflasche zurück (`craftRemainder`).
+Beides ist im Spiel ungetestet (offen: ob Exposure die Rückgabe der Flaschen beim Rezepttyp durchreicht).
