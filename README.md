@@ -50,6 +50,7 @@ Abhängigkeiten: Exposure 1.9.21 (Pflicht, CineCraft ist ein Addon), GeckoLib 4.
 | Animierte Modelle (GeckoLib) | 6 (Projektor, Klappe, 2 Kameras, Objektiv, Entwicklerstation) | `geo/`, `animations/`, `client/` | `docs/GECKOLIB.md` |
 | Rezepte, Loot, Tags | 54 / 8 / 2 | `data/`, `tools/generate_data.py` | `docs/RECIPES.md` |
 | Architektur-Plan (Phasen 1–10) | – | – | `docs/ARCHITECTURE.md` |
+| Design: geplante Funktion pro Item | – | – | `docs/DESIGN.md` |
 
 Alle Items und Blöcke stehen im Creative-Tab "CineCraft" (`ModCreativeTabs.MAIN`). Sprachdateien: `lang/en_us.json`,
 `lang/de_de.json`.
