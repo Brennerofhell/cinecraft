@@ -81,3 +81,13 @@ Werkbank, Zutaten formlos:
 
 `developer_bottle` und `fixer_bottle` geben beim Verbrauch eine leere Glasflasche zurück (`craftRemainder`).
 Beides ist im Spiel ungetestet (offen: ob Exposure die Rückgabe der Flaschen beim Rezepttyp durchreicht).
+
+## Entwicklerstation (Menü)
+
+Rechtsklick auf die `developer_station` öffnet ein Menü: 3 Eingabe-Slots (Reihe in der Mitte) und ein Ergebnis-Slot.
+Die Station fragt den Rezeptmanager mit einem 3×1-Crafting-Raster ab (`RecipeType.CRAFTING`). Exposures
+`exposure:film_developing` ist ein Crafting-Rezept, also entwickelt die Station mit Exposures eigener Logik (Film-Daten
+werden von Exposure übertragen); es gibt keinen eigenen Entwicklungscode. Es greifen auch alle anderen Rezepte mit
+höchstens drei Zutaten, die in eine 3×1-Reihe passen. Die Eingaben bleiben im Block gespeichert und werden beim Abbauen
+gedroppt. Code: `menu/DeveloperStationMenu`, `client/DeveloperStationScreen` (nutzt die Vanilla-Dispenser-Textur),
+`registry/ModMenus`. Ungetestet, Slot-Positionen und Shift-Klick vor allem.

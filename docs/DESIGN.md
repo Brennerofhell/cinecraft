@@ -16,7 +16,7 @@ hängen wir uns über Rezepte, Events und Tags an. Eigene Spiellogik nur dort, w
 | Stufe | Inhalt | Risiko | Stand |
 |---|---|---|---|
 | 1 | Rezepte, Drops, Tags, Entwickeln über `exposure:film_developing` | gering | gebaut, ungetestet |
-| 2 | Entwicklerstation als Block mit Menü (Film, Entwickler, Fixierer → entwickelter Film) | mittel (GUI) | Idee |
+| 2 | Entwicklerstation als Block mit Menü (Film, Entwickler, Fixierer → entwickelter Film) | mittel (GUI) | gebaut (kompiliert), ungetestet |
 | 3 | Zubehör wirkt auf Exposure-Fotos (Filter, Blitz, Objektiv) | hoch (Exposure-Interna) | Idee |
 | 4 | Filmproduktion: Klappe, Mikrofone, Rolle → Aufnahme | hoch (siehe `ARCHITECTURE.md`) | Idee |
 | 5 | Projektion: Projektor + Leinwand zeigen einen Film | hoch (Rendering, Netzwerk) | Idee |

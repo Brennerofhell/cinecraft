@@ -53,5 +53,6 @@
   "item.cinecraft.precision_lens": "Precision Lens",
   "item.cinecraft.shutter_mechanism": "Shutter Mechanism",
   "item.cinecraft.camera_circuit": "Camera Circuit",
-  "item.cinecraft.stabilization_module": "Stabilization Module"
+  "item.cinecraft.stabilization_module": "Stabilization Module",
+  "container.cinecraft.developer_station": "Developer Station"
 }

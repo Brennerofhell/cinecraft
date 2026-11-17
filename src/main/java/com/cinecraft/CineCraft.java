@@ -20,6 +20,7 @@ public class CineCraft {
         ModBlocks.BLOCKS.register(modBus);
         com.cinecraft.registry.ModBlockEntities.TYPES.register(modBus);
         ModItems.ITEMS.register(modBus);
+        com.cinecraft.registry.ModMenus.MENUS.register(modBus);
         ModCreativeTabs.TABS.register(modBus);
 
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(com.cinecraft.compat.ExposureCompat.class);

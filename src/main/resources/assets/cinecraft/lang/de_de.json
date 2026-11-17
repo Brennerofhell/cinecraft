@@ -53,5 +53,6 @@
   "item.cinecraft.precision_lens": "Präzisionslinse",
   "item.cinecraft.shutter_mechanism": "Verschlussmechanismus",
   "item.cinecraft.camera_circuit": "Kameraplatine",
-  "item.cinecraft.stabilization_module": "Stabilisierungsmodul"
+  "item.cinecraft.stabilization_module": "Stabilisierungsmodul",
+  "container.cinecraft.developer_station": "Entwicklerstation"
 }

@@ -4,6 +4,14 @@ import com.cinecraft.registry.ModBlockEntities;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.Containers;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.BaseEntityBlock;
@@ -54,5 +62,24 @@ public class DeveloperStationBlock extends BaseEntityBlock {
     @Override
     protected RenderShape getRenderShape(BlockState state) {
         return RenderShape.ENTITYBLOCK_ANIMATED;
+    }
+
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
+        if (level.isClientSide) return InteractionResult.SUCCESS;
+        if (level.getBlockEntity(pos) instanceof DeveloperStationBlockEntity be) {
+            player.openMenu(new SimpleMenuProvider((id, inv, p) ->
+                    new com.cinecraft.menu.DeveloperStationMenu(id, inv, be.inputs(), ContainerLevelAccess.create(level, pos)),
+                    Component.translatable("container.cinecraft.developer_station")));
+        }
+        return InteractionResult.CONSUME;
+    }
+
+    @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        if (!state.is(newState.getBlock()) && level.getBlockEntity(pos) instanceof DeveloperStationBlockEntity be) {
+            Containers.dropContents(level, pos, be.inputs());
+        }
+        super.onRemove(state, level, pos, newState, movedByPiston);
     }
 }
