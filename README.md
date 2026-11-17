@@ -109,6 +109,13 @@ ein flaches Icon. `clapperboard` ist ein GeckoLib-Item (`clapperboard_static.jso
 3. **Blockbench-MCP** (`.mcp.json`, `http://localhost:3000/bb-mcp`): Modelle laden, ansehen, animieren, GeckoLib
    exportieren. Details in `docs/GECKOLIB.md`.
 
+## Prüfen ohne Spiel
+
+```
+python3 tools/check_resources.py   # alle Modell-, Blockstate-, Textur-, Lang- und Geo-Verweise lösen auf
+python3 tools/generate_data.py     # Rezepte, Loot, Tags neu erzeugen
+```
+
 ## Offene Punkte
 
 - **Test im Spiel:** Alles ungeprüft: Projektor-Animation, Klappen-Animation, `facing`, Hitboxen, Display-Transforms

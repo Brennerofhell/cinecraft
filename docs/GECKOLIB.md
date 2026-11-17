@@ -100,5 +100,5 @@ Nicht umgesetzt: CineCraft-Kameras machen selbst Exposure-Fotos, Objektiv/Film-K
 ## Blockbench-Projekte (.bbmodel)
 
 Liegen in `art/bbmodels/` (Stand 2026-11-16). Beim Arbeiten mit Blockbench immer mitspeichern, auch bei neuen Modellen.
-`_clapperboard_overwritten.bbmodel` ist das versehentlich überschriebene Klappen-Projekt (nicht die Klappe) und
-`_review_scratch.bbmodel` ein Prüf-Projekt. Die Klappe neu aufbauen aus `geo/item/clapperboard.geo.json`.
+`clapperboard_animated.bbmodel` ist die aus `geo/item/clapperboard.geo.json` wiederhergestellte Filmklappe
+(Textur und beide Animationen neu angelegt). `_review_scratch.bbmodel` ist ein Prüf-Projekt.
