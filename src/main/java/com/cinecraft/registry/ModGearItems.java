@@ -24,6 +24,11 @@ public final class ModGearItems {
             net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("cinecraft", "camera_straps"));
 
     public static final Map<Category, List<DeferredItem<Item>>> BY_CATEGORY = new EnumMap<>(Category.class);
+    private static final Map<String, DeferredItem<Item>> BY_ID = new java.util.HashMap<>();
+
+    public static DeferredItem<Item> byId(String id) {
+        return BY_ID.get(id);
+    }
 
     private static void add(DeferredRegister.Items items, Category category, String id, int stackSize) {
         Item.Properties props = new Item.Properties().stacksTo(stackSize);
@@ -35,12 +40,14 @@ public final class ModGearItems {
             case "remote_shutter" -> items.registerItem(id, com.cinecraft.item.RemoteShutterItem::new, props);
             case "lens_cap" -> items.registerItem(id, com.cinecraft.item.LensCapItem::new, props);
             case "camera_battery" -> items.registerItem(id, com.cinecraft.item.BatteryItem::new, props);
+            case "video_tape" -> items.registerItem(id, com.cinecraft.item.VideoTapeItem::new, props);
             case "camera_cage" -> items.registerItem(id, com.cinecraft.item.CageItem::new, props);
             case "camera_backpack" -> items.registerItem(id, com.cinecraft.item.BackpackItem::new, props);
             case "tripod_head" -> items.registerItem(id, com.cinecraft.item.TripodHeadItem::new, props);
             case "directors_megaphone" -> items.registerItem(id, com.cinecraft.item.MegaphoneItem::new, props);
             default -> items.registerSimpleItem(id, props);
         };
+        BY_ID.put(id, item);
         BY_CATEGORY.computeIfAbsent(category, k -> new ArrayList<>()).add(item);
     }
 

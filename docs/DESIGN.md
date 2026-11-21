@@ -90,3 +90,15 @@ Reihenfolge: 0, dann A, B, C. B und C lassen sich ohne Spieltest kaum prüfen.
 Noch ohne Funktion (brauchen die Videoaufnahme aus Stufe 4 oder die Abzug-Pipeline): `shotgun_microphone`, `wireless_microphone`,
 `audio_recorder`, `film_reel`, `video_tape`, `timecode_generator`, `follow_focus`, `photo_paper`, `negative_strip`, `photo_print`,
 `developing_tank`, `darkroom_tongs`. Bauteile (`image_sensor` usw.) sind reine Craft-Zwischenprodukte.
+
+## Stufe 4, Filmaufnahme (Stand 2026-11-21, MVP, ungetestet im Spiel)
+
+- **Ausschalter:** Serverconfig `recording.enableRecording` (Standard `false`). Ohne sie lehnt der Server jeden Upload ab.
+- **Ablauf:** Leeres `video_tape` in die Hand nehmen, Taste **K** (Steuerung, Kategorie CineCraft) startet und beendet die Aufnahme.
+  Der Client greift Frames des Hauptbildes (`CAPTURE_FPS`, `CAPTURE_HEIGHT`, Standard 12 fps, 480p), kodiert sie als JPEG in einem
+  Worker-Thread, packt sie in eine `.ccf`-Datei (`CcfFile`) und lädt sie in 16-KiB-Stücken hoch (16 Pakete pro Tick).
+- **Server:** `FilmStore` prüft Größe, Reihenfolge, SHA-256 und Dateiformat, schreibt über Temp-Datei und legt unter
+  `<Welt>/cinecraft/films/<UUID>.ccf` ab. Grenzen: `maxFilmSeconds`, `maxFilmBytes`, `totalStorageBytes`. Ein Upload pro Spieler.
+- **Item:** Das Band speichert nur die Film-ID (`cinecraft:film_id`) und die Länge in Sekunden.
+- **Noch offen:** Ton (Mikrofone, Audiorecorder), Timecode, Schärfenzug, Klappen-Markierung im Film und vor allem die
+  Wiedergabe (Stufe 5: Projektor und Leinwand zeigen den Film).

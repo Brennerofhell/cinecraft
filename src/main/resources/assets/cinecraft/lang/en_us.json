@@ -139,5 +139,19 @@
   "cinecraft.ponder.tripod_head.header": "The Tripod Head",
   "cinecraft.ponder.tripod_head.text_1": "Use the Tripod Head on a Tripod to turn it a quarter turn. Sneak to turn it the other way.",
   "cinecraft.ponder.directors_megaphone.header": "The Director's Megaphone",
-  "cinecraft.ponder.directors_megaphone.text_1": "Right-click the Megaphone to call \"Action!\" to everyone nearby. Sneak and right-click calls \"Cut!\"."
+  "cinecraft.ponder.directors_megaphone.text_1": "Right-click the Megaphone to call \"Action!\" to everyone nearby. Sneak and right-click calls \"Cut!\".",
+  "key.cinecraft.record": "Record film",
+  "key.categories.cinecraft": "CineCraft",
+  "item.cinecraft.video_tape.empty": "Empty. Hold it and press the record key to film.",
+  "item.cinecraft.video_tape.recorded": "Recorded film: %1$s s",
+  "item.cinecraft.video_tape.hold_tape": "Hold an empty video tape to record",
+  "item.cinecraft.video_tape.recording": "Recording... press the record key again to stop",
+  "item.cinecraft.video_tape.saving": "Saving film...",
+  "item.cinecraft.video_tape.saved": "Film saved on the tape",
+  "item.cinecraft.video_tape.too_short": "The film is too short",
+  "item.cinecraft.video_tape.too_long": "The film is too long for this server",
+  "item.cinecraft.video_tape.failed": "Recording failed",
+  "item.cinecraft.video_tape.rejected": "The server rejected the film",
+  "item.cinecraft.video_tape.disabled": "Recording is disabled on this server",
+  "item.cinecraft.video_tape.no_tape": "No empty video tape in your hands"
 }

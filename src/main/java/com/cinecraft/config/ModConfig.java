@@ -8,6 +8,7 @@ public final class ModConfig {
     public static final ModConfigSpec SERVER_SPEC;
     public static final ModConfigSpec CLIENT_SPEC;
 
+    public static final ModConfigSpec.BooleanValue ENABLE_RECORDING;
     public static final ModConfigSpec.IntValue MAX_FILM_SECONDS;
     public static final ModConfigSpec.LongValue MAX_FILM_BYTES;
     public static final ModConfigSpec.LongValue TOTAL_STORAGE_BYTES;
@@ -17,6 +18,10 @@ public final class ModConfig {
 
     static {
         ModConfigSpec.Builder s = new ModConfigSpec.Builder();
+        s.push("recording");
+        ENABLE_RECORDING = s.comment("Allow players to record films onto video tapes and upload them to the server (experimental)")
+                .define("enableRecording", false);
+        s.pop();
         s.push("limits");
         MAX_FILM_SECONDS = s.comment("Maximum length of a single film in seconds")
                 .defineInRange("maxFilmSeconds", 60, 1, 600);

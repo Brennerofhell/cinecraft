@@ -139,5 +139,19 @@
   "cinecraft.ponder.tripod_head.header": "Der Stativkopf",
   "cinecraft.ponder.tripod_head.text_1": "Benutze den Stativkopf auf einem Stativ, um es eine Vierteldrehung zu drehen. Schleichen dreht in die andere Richtung.",
   "cinecraft.ponder.directors_megaphone.header": "Das Regiemegafon",
-  "cinecraft.ponder.directors_megaphone.text_1": "Rechtsklick mit dem Megafon ruft allen in der Nähe „Action!“ zu. Schleichen und Rechtsklick ruft „Schnitt!“."
+  "cinecraft.ponder.directors_megaphone.text_1": "Rechtsklick mit dem Megafon ruft allen in der Nähe „Action!“ zu. Schleichen und Rechtsklick ruft „Schnitt!“.",
+  "key.cinecraft.record": "Film aufnehmen",
+  "key.categories.cinecraft": "CineCraft",
+  "item.cinecraft.video_tape.empty": "Leer. In die Hand nehmen und die Aufnahmetaste drücken.",
+  "item.cinecraft.video_tape.recorded": "Aufgenommener Film: %1$s s",
+  "item.cinecraft.video_tape.hold_tape": "Zum Aufnehmen ein leeres Videoband in die Hand nehmen",
+  "item.cinecraft.video_tape.recording": "Aufnahme läuft... Aufnahmetaste erneut drücken zum Beenden",
+  "item.cinecraft.video_tape.saving": "Film wird gespeichert...",
+  "item.cinecraft.video_tape.saved": "Film auf dem Band gespeichert",
+  "item.cinecraft.video_tape.too_short": "Der Film ist zu kurz",
+  "item.cinecraft.video_tape.too_long": "Der Film ist für diesen Server zu lang",
+  "item.cinecraft.video_tape.failed": "Aufnahme fehlgeschlagen",
+  "item.cinecraft.video_tape.rejected": "Der Server hat den Film abgelehnt",
+  "item.cinecraft.video_tape.disabled": "Aufnahme ist auf diesem Server ausgeschaltet",
+  "item.cinecraft.video_tape.no_tape": "Kein leeres Videoband in deinen Händen"
 }

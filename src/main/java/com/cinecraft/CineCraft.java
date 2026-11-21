@@ -19,12 +19,15 @@ public class CineCraft {
     public CineCraft(IEventBus modBus, ModContainer container) {
         ModBlocks.BLOCKS.register(modBus);
         com.cinecraft.registry.ModBlockEntities.TYPES.register(modBus);
+        com.cinecraft.registry.ModDataComponents.COMPONENTS.register(modBus);
         ModItems.ITEMS.register(modBus);
+        modBus.addListener(com.cinecraft.network.FilmNetwork::register);
         com.cinecraft.registry.ModMenus.MENUS.register(modBus);
         ModCreativeTabs.TABS.register(modBus);
 
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(com.cinecraft.compat.ExposureCompat.class);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(com.cinecraft.compat.StrapEvents.class);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(com.cinecraft.network.FilmNetwork.class);
 
         container.registerConfig(Type.SERVER, ModConfig.SERVER_SPEC);
         container.registerConfig(Type.CLIENT, ModConfig.CLIENT_SPEC);
