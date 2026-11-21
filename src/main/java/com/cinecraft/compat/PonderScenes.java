@@ -12,7 +12,7 @@ final class PonderScenes {
     static final List<Entry> ENTRIES = List.of(
             new Entry("tripod", "The Tripod", List.of("tripod"), List.of("The Tripod is a camera stand for decoration. Turn it with a Tripod Head.")),
             new Entry("screen", "The Projection Screen", List.of("screen"), List.of("The Projection Screen is the surface for the Film Projector. Place it facing the projector.",
-                    "Projecting films onto it is planned for a later version.")),
+                    "Put a recorded video tape into the projector and switch it on: the film plays on the screen.")),
             new Entry("darkroom_safelight", "The Darkroom Safelight", List.of("darkroom_safelight"), List.of("The Safelight gives off a dim red light, just right for a darkroom.")),
             new Entry("darkroom_enlarger", "The Darkroom Enlarger", List.of("darkroom_enlarger"), List.of("The Enlarger is decoration for your darkroom. Photo prints with it are planned for later.")),
             new Entry("developer_tray", "The Developer Tray", List.of("developer_tray"), List.of("The Developer Tray is decoration for your darkroom. To develop film, use the Developer Station.")),

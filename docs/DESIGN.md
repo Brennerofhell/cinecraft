@@ -102,3 +102,15 @@ Noch ohne Funktion (brauchen die Videoaufnahme aus Stufe 4 oder die Abzug-Pipeli
 - **Item:** Das Band speichert nur die Film-ID (`cinecraft:film_id`) und die Länge in Sekunden.
 - **Noch offen:** Ton (Mikrofone, Audiorecorder), Timecode, Schärfenzug, Klappen-Markierung im Film und vor allem die
   Wiedergabe (Stufe 5: Projektor und Leinwand zeigen den Film).
+
+## Stufe 5, Wiedergabe (Stand 2026-11-21, MVP, ungetestet im Spiel)
+
+- **Band einlegen:** Rechtsklick mit bespieltem `video_tape` auf den Projektor legt es ein (Schleichen + Rechtsklick mit leerer Hand
+  nimmt es heraus, beim Abbauen fällt es heraus). Das Band liegt in der Block-Entity und wird zu den Clients synchronisiert.
+- **Anzeige:** Ist der Projektor an, zeichnet `ProjectorRenderer` das Bild auf die erste `screen` in Blickrichtung (bis 12 Blöcke,
+  feste Blöcke dazwischen blockieren). Die Leinwand muss dem Projektor zugewandt sein; ein Block zeigt das ganze Bild.
+- **Laden:** `FilmCache` holt den Film stückweise vom Server (Anfrage pro Stück, daher keine Warteschlange auf dem Server) nach
+  `<Spielordner>/cinecraft-cache/<UUID>.ccf`, `FilmPlayback` dekodiert das passende JPEG-Bild im Worker-Thread und lädt es in eine
+  dynamische Textur. Der Film läuft in Schleife.
+- **Offen:** Ton, mehrteilige Leinwand (ein Bild über mehrere Blöcke), Synchronisation der Startzeit zwischen Spielern,
+  Aufräumen nicht mehr genutzter Texturen, Anzeige auf der Leinwand wenn der Projektor aus dem Bild ist (Renderdistanz).

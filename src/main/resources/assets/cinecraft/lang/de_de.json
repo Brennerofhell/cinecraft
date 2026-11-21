@@ -92,7 +92,7 @@
   "cinecraft.ponder.tripod.text_1": "Das Stativ ist ein Kamerastativ zur Dekoration.",
   "cinecraft.ponder.screen.header": "Die Projektionsleinwand",
   "cinecraft.ponder.screen.text_1": "Die Projektionsleinwand ist die Fläche für den Filmprojektor. Stelle sie dem Projektor gegenüber auf.",
-  "cinecraft.ponder.screen.text_2": "Das Projizieren von Filmen ist für eine spätere Version geplant.",
+  "cinecraft.ponder.screen.text_2": "Lege ein bespieltes Videoband in den Projektor und schalte ihn ein: Der Film läuft auf der Leinwand.",
   "cinecraft.ponder.darkroom_safelight.header": "Die Dunkelkammerlampe",
   "cinecraft.ponder.darkroom_safelight.text_1": "Die Dunkelkammerlampe gibt ein gedämpftes rotes Licht ab, genau richtig für die Dunkelkammer.",
   "cinecraft.ponder.darkroom_enlarger.header": "Der Vergrößerer",
@@ -153,5 +153,6 @@
   "item.cinecraft.video_tape.failed": "Aufnahme fehlgeschlagen",
   "item.cinecraft.video_tape.rejected": "Der Server hat den Film abgelehnt",
   "item.cinecraft.video_tape.disabled": "Aufnahme ist auf diesem Server ausgeschaltet",
-  "item.cinecraft.video_tape.no_tape": "Kein leeres Videoband in deinen Händen"
+  "item.cinecraft.video_tape.no_tape": "Kein leeres Videoband in deinen Händen",
+  "cinecraft.ponder.projector.text_4": "Rechtsklick mit einem bespielten Videoband legt es ein. Der Film läuft auf der Projektionsleinwand, auf die er zeigt. Schleichen und Rechtsklick mit leerer Hand nimmt das Band heraus"
 }

@@ -39,6 +39,10 @@ public final class FilmNetwork {
                 (payload, ctx) -> ctx.enqueueWork(() -> onBegin(payload, ctx)));
         registrar.playToServer(FilmPayloads.Chunk.TYPE, FilmPayloads.Chunk.CODEC,
                 (payload, ctx) -> ctx.enqueueWork(() -> onChunk(payload, ctx)));
+        registrar.playToServer(FilmPayloads.RequestChunk.TYPE, FilmPayloads.RequestChunk.CODEC,
+                (payload, ctx) -> ctx.enqueueWork(() -> onRequest(payload, ctx)));
+        registrar.playToClient(FilmPayloads.ChunkData.TYPE, FilmPayloads.ChunkData.CODEC,
+                (payload, ctx) -> ctx.enqueueWork(() -> com.cinecraft.client.playback.FilmCache.onChunk(payload)));
         registrar.playToServer(FilmPayloads.Finish.TYPE, FilmPayloads.Finish.CODEC,
                 (payload, ctx) -> ctx.enqueueWork(() -> onFinish(ctx)));
     }
@@ -104,6 +108,20 @@ public final class FilmNetwork {
         } catch (IOException e) {
             CineCraft.LOGGER.warn("Film upload from {} failed: {}", player.getGameProfile().getName(), e.getMessage());
             fail(player, "item.cinecraft.video_tape.rejected");
+        }
+    }
+
+    private static void onRequest(FilmPayloads.RequestChunk p, IPayloadContext ctx) {
+        if (!(ctx.player() instanceof ServerPlayer player)) return;
+        try {
+            FilmStore films = store(player.server);
+            long total = films.size(p.film());
+            byte[] data = total < 0 ? new byte[0] : films.readChunk(p.film(), p.index());
+            net.neoforged.neoforge.network.PacketDistributor.sendToPlayer(player,
+                    new FilmPayloads.ChunkData(p.film(), total, p.index(), data));
+        } catch (IOException e) {
+            net.neoforged.neoforge.network.PacketDistributor.sendToPlayer(player,
+                    new FilmPayloads.ChunkData(p.film(), -1, p.index(), new byte[0]));
         }
     }
 

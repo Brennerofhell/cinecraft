@@ -57,4 +57,34 @@ public final class FilmPayloads {
             return TYPE;
         }
     }
+
+    /** Client asks the server for chunk {@code index} of a film; the answer is {@link ChunkData}. */
+    public record RequestChunk(UUID film, int index) implements CustomPacketPayload {
+        public static final Type<RequestChunk> TYPE = typeOf("film_request");
+        public static final StreamCodec<RegistryFriendlyByteBuf, RequestChunk> CODEC = StreamCodec.composite(
+                UUIDUtil.STREAM_CODEC, RequestChunk::film,
+                ByteBufCodecs.VAR_INT, RequestChunk::index,
+                RequestChunk::new);
+
+        @Override
+        public Type<? extends CustomPacketPayload> type() {
+            return TYPE;
+        }
+    }
+
+    /** One chunk of a film; {@code total} is the film size in bytes, or -1 if the server does not have the film. */
+    public record ChunkData(UUID film, long total, int index, byte[] data) implements CustomPacketPayload {
+        public static final Type<ChunkData> TYPE = typeOf("film_data");
+        public static final StreamCodec<RegistryFriendlyByteBuf, ChunkData> CODEC = StreamCodec.composite(
+                UUIDUtil.STREAM_CODEC, ChunkData::film,
+                ByteBufCodecs.VAR_LONG, ChunkData::total,
+                ByteBufCodecs.VAR_INT, ChunkData::index,
+                ByteBufCodecs.byteArray(FilmStore.CHUNK_SIZE), ChunkData::data,
+                ChunkData::new);
+
+        @Override
+        public Type<? extends CustomPacketPayload> type() {
+            return TYPE;
+        }
+    }
 }

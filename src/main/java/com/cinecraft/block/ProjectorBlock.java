@@ -66,11 +66,35 @@ public class ProjectorBlock extends BaseEntityBlock {
         return RenderShape.ENTITYBLOCK_ANIMATED;
     }
 
-    /** Right-click toggles the projector on/off. */
+    /** Right-click with a recorded video tape inserts it (if the projector holds none yet). */
+    @Override
+    protected net.minecraft.world.ItemInteractionResult useItemOn(net.minecraft.world.item.ItemStack stack, BlockState state,
+            Level level, BlockPos pos, Player player, net.minecraft.world.InteractionHand hand, BlockHitResult hit) {
+        if (stack.getItem() instanceof com.cinecraft.item.VideoTapeItem
+                && stack.has(com.cinecraft.registry.ModDataComponents.FILM_ID.get())
+                && level.getBlockEntity(pos) instanceof ProjectorBlockEntity projector
+                && projector.tape().isEmpty()) {
+            if (!level.isClientSide) {
+                projector.setTape(stack.copyWithCount(1));
+                if (!player.getAbilities().instabuild) stack.shrink(1);
+                level.playSound(null, pos, SoundEvents.UI_BUTTON_CLICK.value(), SoundSource.BLOCKS, 0.6f, 1.4f);
+            }
+            return net.minecraft.world.ItemInteractionResult.sidedSuccess(level.isClientSide);
+        }
+        return net.minecraft.world.ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    }
+
+    /** Right-click toggles the projector on/off; sneaking with an empty hand takes the tape out. */
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!level.isClientSide) {
-            setLit(level, pos, state, !state.getValue(BlockStateProperties.LIT));
+            if (player.isShiftKeyDown() && level.getBlockEntity(pos) instanceof ProjectorBlockEntity projector
+                    && !projector.tape().isEmpty()) {
+                player.getInventory().placeItemBackInInventory(projector.tape());
+                projector.setTape(net.minecraft.world.item.ItemStack.EMPTY);
+            } else {
+                setLit(level, pos, state, !state.getValue(BlockStateProperties.LIT));
+            }
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
@@ -83,6 +107,14 @@ public class ProjectorBlock extends BaseEntityBlock {
         if (powered != state.getValue(BlockStateProperties.LIT)) {
             setLit(level, pos, state, powered);
         }
+    }
+
+    @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean moved) {
+        if (!state.is(newState.getBlock()) && level.getBlockEntity(pos) instanceof ProjectorBlockEntity projector) {
+            net.minecraft.world.Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), projector.tape());
+        }
+        super.onRemove(state, level, pos, newState, moved);
     }
 
     private static void setLit(Level level, BlockPos pos, BlockState state, boolean lit) {

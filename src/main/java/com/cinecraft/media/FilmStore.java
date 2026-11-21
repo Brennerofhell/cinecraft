@@ -61,6 +61,29 @@ public final class FilmStore {
         }
     }
 
+    /** Size in bytes of a stored film, or -1 if it does not exist. */
+    public long size(UUID film) {
+        try {
+            Path p = pathFor(film);
+            return Files.isRegularFile(p) ? Files.size(p) : -1;
+        } catch (IOException e) {
+            return -1;
+        }
+    }
+
+    /** Reads chunk {@code index} (of {@link #CHUNK_SIZE} bytes, the last one may be shorter) of a stored film. */
+    public byte[] readChunk(UUID film, int index) throws IOException {
+        long size = size(film);
+        long from = (long) index * CHUNK_SIZE;
+        if (size < 0 || index < 0 || from >= size) throw new IOException("no such chunk");
+        byte[] data = new byte[(int) Math.min(CHUNK_SIZE, size - from)];
+        try (RandomAccessFile f = new RandomAccessFile(pathFor(film).toFile(), "r")) {
+            f.seek(from);
+            f.readFully(data);
+        }
+        return data;
+    }
+
     /** Starts an upload for {@code player}; only one upload per player at a time. */
     public synchronized void begin(UUID player, UUID film, long totalBytes, int chunkCount, byte[] sha256) throws IOException {
         if (uploads.containsKey(player)) throw new IOException("upload already running");

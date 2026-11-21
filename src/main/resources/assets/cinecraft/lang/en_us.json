@@ -92,7 +92,7 @@
   "cinecraft.ponder.tripod.text_1": "The Tripod is a camera stand for decoration. Turn it with a Tripod Head.",
   "cinecraft.ponder.screen.header": "The Projection Screen",
   "cinecraft.ponder.screen.text_1": "The Projection Screen is the surface for the Film Projector. Place it facing the projector.",
-  "cinecraft.ponder.screen.text_2": "Projecting films onto it is planned for a later version.",
+  "cinecraft.ponder.screen.text_2": "Put a recorded video tape into the projector and switch it on: the film plays on the screen.",
   "cinecraft.ponder.darkroom_safelight.header": "The Darkroom Safelight",
   "cinecraft.ponder.darkroom_safelight.text_1": "The Safelight gives off a dim red light, just right for a darkroom.",
   "cinecraft.ponder.darkroom_enlarger.header": "The Darkroom Enlarger",
@@ -153,5 +153,6 @@
   "item.cinecraft.video_tape.failed": "Recording failed",
   "item.cinecraft.video_tape.rejected": "The server rejected the film",
   "item.cinecraft.video_tape.disabled": "Recording is disabled on this server",
-  "item.cinecraft.video_tape.no_tape": "No empty video tape in your hands"
+  "item.cinecraft.video_tape.no_tape": "No empty video tape in your hands",
+  "cinecraft.ponder.projector.text_4": "Right-click with a recorded video tape to insert it. The film plays on the Projection Screen it faces. Sneak and right-click with an empty hand takes the tape out"
 }

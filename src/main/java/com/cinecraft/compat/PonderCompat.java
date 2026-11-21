@@ -74,6 +74,12 @@ public final class PonderCompat implements PonderPlugin {
                 .pointAt(util.vector().centerOf(projector))
                 .placeNearTarget();
         scene.idle(80);
+
+        scene.overlay().showText(100)
+                .text("Right-click with a recorded video tape to insert it. The film plays on the Projection Screen it faces. Sneak and right-click with an empty hand takes the tape out")
+                .pointAt(util.vector().topOf(projector))
+                .placeNearTarget();
+        scene.idle(110);
     }
 
     /** Structure: 5x5 floor, developer station at (2,1,2). */
