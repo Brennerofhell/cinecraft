@@ -4,6 +4,10 @@ import com.cinecraft.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.ContainerHelper;
@@ -41,6 +45,20 @@ public class FilmShelfBlockEntity extends BaseContainerBlockEntity {
     @Override
     public int getContainerSize() {
         return SLOTS;
+    }
+
+    /** Only film material fits: Exposure film rolls (raw and developed) and CineCraft film items. */
+    @Override
+    public boolean canPlaceItem(int slot, ItemStack stack) {
+        return stack.is(FILM_ROLLS) || stack.is(DEVELOPED_FILM_ROLLS) || stack.is(CINECRAFT_FILM);
+    }
+
+    private static final TagKey<Item> FILM_ROLLS = tag("exposure:film_rolls");
+    private static final TagKey<Item> DEVELOPED_FILM_ROLLS = tag("exposure:developed_film_rolls");
+    private static final TagKey<Item> CINECRAFT_FILM = tag("cinecraft:shelf_storable");
+
+    private static TagKey<Item> tag(String id) {
+        return TagKey.create(Registries.ITEM, ResourceLocation.parse(id));
     }
 
     @Override

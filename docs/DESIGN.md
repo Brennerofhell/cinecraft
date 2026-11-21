@@ -41,6 +41,17 @@ hängen wir uns über Rezepte, Events und Tags an. Eigene Spiellogik nur dort, w
 3. Vor Stufe 3 klären, was Exposure für Erweiterungen anbietet (Dokumentation und `docs/for_developers` im Repo lesen).
 4. Stufe 4 und 5 sind eigene Großprojekte; Plan in `docs/ARCHITECTURE.md` (MJPEG-Container, Netzwerk, Wiedergabe).
 
+## Fahrplan (Stand 2026-11-21)
+
+| Schritt | Inhalt | Stand |
+|---|---|---|
+| 0 | Im Spiel prüfen: Kamera, Filter, Modelle, Entwickeln | offen, braucht `runClient` |
+| A | Filmregal nur für Film-Items, Zubehör anbinden (Akku, Gurt, Deckel, Blende), Doku | Regal erledigt, Zubehör offen |
+| B | Filmaufnahme: `.ccf`-Format (`com.cinecraft.media`), Server-Speicher, Upload-Netzwerk, Film-ID als Data Component | Format gebaut, Rest offen |
+| C | Projektion: Wiedergabe-Textur pro Projektion, mehrteilige Leinwand | offen |
+
+Reihenfolge: 0, dann A, B, C. B und C lassen sich ohne Spieltest kaum prüfen.
+
 ## Offene Entscheidungen für dich
 
 - Sollen die Zubehör-Items Pflicht werden (Foto braucht Filter) oder nur Bonus bleiben?

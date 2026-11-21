@@ -1,0 +1,10 @@
+{
+  "values": [
+    "cinecraft:film_roll",
+    "cinecraft:film_cartridge",
+    "cinecraft:film_reel",
+    "cinecraft:video_tape",
+    "cinecraft:negative_strip",
+    "cinecraft:photo_print"
+  ]
+}
