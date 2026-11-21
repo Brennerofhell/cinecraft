@@ -154,5 +154,6 @@
   "item.cinecraft.video_tape.rejected": "Der Server hat den Film abgelehnt",
   "item.cinecraft.video_tape.disabled": "Aufnahme ist auf diesem Server ausgeschaltet",
   "item.cinecraft.video_tape.no_tape": "Kein leeres Videoband in deinen Händen",
-  "cinecraft.ponder.projector.text_4": "Rechtsklick mit einem bespielten Videoband legt es ein. Der Film läuft auf der Projektionsleinwand, auf die er zeigt. Schleichen und Rechtsklick mit leerer Hand nimmt das Band heraus"
+  "cinecraft.ponder.projector.text_4": "Rechtsklick mit einem bespielten Videoband legt es ein. Der Film läuft auf der Projektionsleinwand, auf die er zeigt. Schleichen und Rechtsklick mit leerer Hand nimmt das Band heraus",
+  "cinecraft.ponder.screen.text_3": "Leinwände nebeneinander und übereinander bilden eine große Leinwand."
 }

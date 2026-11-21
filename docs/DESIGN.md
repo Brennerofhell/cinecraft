@@ -112,5 +112,6 @@ Noch ohne Funktion (brauchen die Videoaufnahme aus Stufe 4 oder die Abzug-Pipeli
 - **Laden:** `FilmCache` holt den Film stückweise vom Server (Anfrage pro Stück, daher keine Warteschlange auf dem Server) nach
   `<Spielordner>/cinecraft-cache/<UUID>.ccf`, `FilmPlayback` dekodiert das passende JPEG-Bild im Worker-Thread und lädt es in eine
   dynamische Textur. Der Film läuft in Schleife.
-- **Offen:** Ton, mehrteilige Leinwand (ein Bild über mehrere Blöcke), Synchronisation der Startzeit zwischen Spielern,
-  Aufräumen nicht mehr genutzter Texturen, Anzeige auf der Leinwand wenn der Projektor aus dem Bild ist (Renderdistanz).
+- **Große Leinwand:** Aneinander liegende `screen`-Blöcke einer Ebene bilden das größte volle Rechteck um den getroffenen Block (bis 16 breit/hoch); das Bild wird mit Rand eingepasst.
+- **Synchron:** Die Filmposition ergibt sich aus der Weltzeit, alle Spieler sehen dieselbe Stelle. Ungenutzte Texturen werden nach 30 s freigegeben.
+- **Offen:** Ton, Anzeige auf der Leinwand wenn der Projektor aus dem Bild ist (Renderdistanz).

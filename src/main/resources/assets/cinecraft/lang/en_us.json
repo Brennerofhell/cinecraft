@@ -154,5 +154,6 @@
   "item.cinecraft.video_tape.rejected": "The server rejected the film",
   "item.cinecraft.video_tape.disabled": "Recording is disabled on this server",
   "item.cinecraft.video_tape.no_tape": "No empty video tape in your hands",
-  "cinecraft.ponder.projector.text_4": "Right-click with a recorded video tape to insert it. The film plays on the Projection Screen it faces. Sneak and right-click with an empty hand takes the tape out"
+  "cinecraft.ponder.projector.text_4": "Right-click with a recorded video tape to insert it. The film plays on the Projection Screen it faces. Sneak and right-click with an empty hand takes the tape out",
+  "cinecraft.ponder.screen.text_3": "Screens placed next to each other and on top of each other form one big screen."
 }

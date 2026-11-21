@@ -38,6 +38,9 @@ public final class FilmPlayback {
 
     private static final Map<UUID, Playback> PLAYBACKS = new HashMap<>();
     private static final Set<UUID> BROKEN = new HashSet<>();
+    private static final long CLEANUP_INTERVAL_NANOS = 5_000_000_000L;
+    private static final long UNUSED_NANOS = 30_000_000_000L;
+    private static long lastCleanupNanos = System.nanoTime();
     private static final ExecutorService DECODER = Executors.newSingleThreadExecutor(r -> {
         Thread t = new Thread(r, "cinecraft-decoder");
         t.setDaemon(true);
@@ -54,7 +57,7 @@ public final class FilmPlayback {
         final AtomicReference<Decoded> ready = new AtomicReference<>();
         volatile int decoding = -1;
         int shown = -1;
-        final long startMillis = System.currentTimeMillis();
+        long lastUsedNanos = System.nanoTime();
 
         Playback(UUID film, Path file) throws IOException {
             reader = new CcfFile.Reader(file);
@@ -66,16 +69,21 @@ public final class FilmPlayback {
 
         void close() {
             Minecraft.getInstance().getTextureManager().release(location);
-            try {
-                reader.close();
-            } catch (IOException ignored) {
-                // closing a read-only file
+            synchronized (reader) {
+                try {
+                    reader.close();
+                } catch (IOException ignored) {
+                    // closing a read-only file
+                }
             }
         }
     }
 
-    /** The frame to show now, or {@code null} while the film is still loading (or broken). Render thread only. */
-    public static Frame current(UUID film) {
+    /**
+     * The frame to show at {@code timeMillis} (world time, so all players see the same moment), or {@code null}
+     * while the film is still loading (or broken). Render thread only.
+     */
+    public static Frame current(UUID film, long timeMillis) {
         if (BROKEN.contains(film)) return null;
         Playback pb = PLAYBACKS.get(film);
         if (pb == null) {
@@ -90,12 +98,28 @@ public final class FilmPlayback {
                 return null;
             }
         }
-        advance(pb);
+        pb.lastUsedNanos = System.nanoTime();
+        releaseUnused();
+        advance(pb, timeMillis);
         if (pb.shown < 0) return null; // first frame not decoded yet
         return new Frame(pb.location, pb.header.width() / (float) pb.header.height());
     }
 
-    private static void advance(Playback pb) {
+    /** Frees the textures of films nobody has looked at for a while (checked every few seconds). */
+    private static void releaseUnused() {
+        long now = System.nanoTime();
+        if (now - lastCleanupNanos < CLEANUP_INTERVAL_NANOS) return;
+        lastCleanupNanos = now;
+        PLAYBACKS.values().removeIf(pb -> {
+            if (now - pb.lastUsedNanos > UNUSED_NANOS) {
+                pb.close();
+                return true;
+            }
+            return false;
+        });
+    }
+
+    private static void advance(Playback pb, long timeMillis) {
         Decoded d = pb.ready.getAndSet(null);
         if (d != null && d.image().getWidth() == pb.header.width() && d.image().getHeight() == pb.header.height()) {
             NativeImage pixels = pb.texture.getPixels();
@@ -113,8 +137,7 @@ public final class FilmPlayback {
                 pb.shown = d.frame();
             }
         }
-        long elapsed = System.currentTimeMillis() - pb.startMillis;
-        int frame = (int) (elapsed * pb.header.fps() / 1000 % pb.header.frameCount());
+        int frame = (int) (timeMillis * pb.header.fps() / 1000 % pb.header.frameCount());
         if (frame != pb.shown && frame != pb.decoding) {
             pb.decoding = frame;
             DECODER.execute(() -> {
