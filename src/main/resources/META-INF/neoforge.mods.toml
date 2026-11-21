@@ -44,3 +44,11 @@ type = "optional"
 versionRange = "[0,)"
 ordering = "AFTER"
 side = "BOTH"
+
+# Ponder (in-game tutorials) is optional.
+[[dependencies.${mod_id}]]
+modId = "ponder"
+type = "optional"
+versionRange = "[1.0,)"
+ordering = "AFTER"
+side = "CLIENT"

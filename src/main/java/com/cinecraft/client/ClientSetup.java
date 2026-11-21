@@ -26,6 +26,9 @@ public final class ClientSetup {
     /** Exposure needs a viewfinder per camera item on the client, otherwise using the camera crashes. */
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
+        if (net.neoforged.fml.ModList.get().isLoaded("ponder")) {
+            event.enqueueWork(com.cinecraft.compat.PonderCompat::register);
+        }
         event.enqueueWork(() -> {
             for (var camera : java.util.List.of(ModItems.ANALOG_CAMERA, ModItems.DIGITAL_CAMERA)) {
                 ViewfinderRegistry.register((CameraItem) camera.get(), Viewfinder::new);

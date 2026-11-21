@@ -17,6 +17,10 @@ repositories {
         content { includeGroup 'software.bernie.geckolib' }
     }
     maven {
+        url = 'https://maven.createmod.net'
+        content { includeGroup 'net.createmod.ponder' }
+    }
+    maven {
         url = 'https://api.modrinth.com/maven'
         content { includeGroup 'maven.modrinth' }
     }
@@ -89,4 +93,6 @@ dependencies {
     implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
     // Exposure (Foto-Mod, MIT). CineCraft ist ein Addon dafuer. Modrinth-Version-ID statt Nummer (loaderspezifisch).
     implementation "maven.modrinth:exposure:${exposure_version_id}"
+    // Ponder (Create's in-game tutorial system). Optional at runtime; only compiled against.
+    compileOnly "net.createmod.ponder:Ponder-NeoForge-${minecraft_version}:1.0.69"
 }
