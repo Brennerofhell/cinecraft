@@ -58,5 +58,11 @@
   "item.cinecraft.clapperboard.take": "Scene %1$s · Take %2$s",
   "item.cinecraft.clapperboard.new_scene": "New scene %1$s",
   "item.cinecraft.remote_shutter.no_camera": "No camera ready in your inventory",
-  "item.cinecraft.camera_strap.held": "Camera held by the strap"
+  "item.cinecraft.camera_strap.held": "Camera held by the strap",
+  "item.cinecraft.lens_cap.on": "Lens cap on",
+  "item.cinecraft.lens_cap.off": "Lens cap off",
+  "item.cinecraft.lens_cap.tooltip": "Lens cap on",
+  "item.cinecraft.camera_battery.charged": "Battery inserted (%1$s shots)",
+  "item.cinecraft.camera_battery.not_empty": "The battery is not empty yet",
+  "item.cinecraft.camera_battery.tooltip": "Battery: %1$s / %2$s"
 }

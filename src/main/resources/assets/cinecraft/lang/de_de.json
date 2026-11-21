@@ -58,5 +58,11 @@
   "item.cinecraft.clapperboard.take": "Szene %1$s · Take %2$s",
   "item.cinecraft.clapperboard.new_scene": "Neue Szene %1$s",
   "item.cinecraft.remote_shutter.no_camera": "Keine Kamera bereit im Inventar",
-  "item.cinecraft.camera_strap.held": "Die Kamera hängt am Gurt"
+  "item.cinecraft.camera_strap.held": "Die Kamera hängt am Gurt",
+  "item.cinecraft.lens_cap.on": "Objektivdeckel aufgesetzt",
+  "item.cinecraft.lens_cap.off": "Objektivdeckel abgenommen",
+  "item.cinecraft.lens_cap.tooltip": "Objektivdeckel aufgesetzt",
+  "item.cinecraft.camera_battery.charged": "Akku eingelegt (%1$s Aufnahmen)",
+  "item.cinecraft.camera_battery.not_empty": "Der Akku ist noch nicht leer",
+  "item.cinecraft.camera_battery.tooltip": "Akku: %1$s / %2$s"
 }

@@ -57,6 +57,22 @@ public class CineCameraItem extends io.github.mortuusars.exposure.world.item.cam
                 io.github.mortuusars.exposure.world.item.camera.Attachment.FILTER);
     }
 
+    /** A camera with the lens cap on cannot shoot. */
+    @Override
+    public boolean canTakePhoto(io.github.mortuusars.exposure.world.entity.CameraHolder holder, ItemStack stack) {
+        return !CameraState.hasLensCap(stack) && super.canTakePhoto(holder, stack);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, java.util.List<net.minecraft.network.chat.Component> tooltip,
+                                net.minecraft.world.item.TooltipFlag flag) {
+        super.appendHoverText(stack, context, tooltip, flag);
+        if (CameraState.hasLensCap(stack)) {
+            tooltip.add(net.minecraft.network.chat.Component.translatable("item.cinecraft.lens_cap.tooltip")
+                    .withStyle(net.minecraft.ChatFormatting.GRAY));
+        }
+    }
+
     public String id() {
         return id;
     }

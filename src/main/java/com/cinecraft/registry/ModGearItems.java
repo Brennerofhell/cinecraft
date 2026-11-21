@@ -31,9 +31,12 @@ public final class ModGearItems {
         if (id.equals("developer_bottle") || id.equals("fixer_bottle")) {
             props = props.craftRemainder(net.minecraft.world.item.Items.GLASS_BOTTLE);
         }
-        DeferredItem<Item> item = id.equals("remote_shutter")
-                ? items.registerItem(id, com.cinecraft.item.RemoteShutterItem::new, props)
-                : items.registerSimpleItem(id, props);
+        DeferredItem<Item> item = switch (id) {
+            case "remote_shutter" -> items.registerItem(id, com.cinecraft.item.RemoteShutterItem::new, props);
+            case "lens_cap" -> items.registerItem(id, com.cinecraft.item.LensCapItem::new, props);
+            case "camera_battery" -> items.registerItem(id, com.cinecraft.item.BatteryItem::new, props);
+            default -> items.registerSimpleItem(id, props);
+        };
         BY_CATEGORY.computeIfAbsent(category, k -> new ArrayList<>()).add(item);
     }
 

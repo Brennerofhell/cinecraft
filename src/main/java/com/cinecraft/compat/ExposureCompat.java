@@ -23,6 +23,9 @@ public final class ExposureCompat {
             if (stack.getItem() instanceof com.cinecraft.item.CineCameraItem cam) {
                 cam.playAction(living, stack);
             }
+            if (stack.getItem() instanceof com.cinecraft.item.DigitalCameraItem) {
+                com.cinecraft.item.CameraState.setCharge(stack, com.cinecraft.item.CameraState.charge(stack) - 1);
+            }
         }
     }
 }
