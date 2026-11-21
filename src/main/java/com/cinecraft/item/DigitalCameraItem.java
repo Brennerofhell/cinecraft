@@ -1,6 +1,5 @@
 package com.cinecraft.item;
 
-import io.github.mortuusars.exposure.world.item.camera.Attachment;
 
 import java.util.List;
 
@@ -24,8 +23,9 @@ public class DigitalCameraItem extends CineCameraItem {
                 CameraState.charge(stack), CameraState.MAX_CHARGE).withStyle(net.minecraft.ChatFormatting.GRAY));
     }
 
+    /** The digital camera takes memory cards only. */
     @Override
-    protected List<Attachment<?>> defineAttachments() {
-        return CineCameraItem.attachmentsWithFilm(stack -> stack.getItem() instanceof MemoryCardItem);
+    protected boolean acceptsMedium(boolean isMemoryCard) {
+        return isMemoryCard;
     }
 }

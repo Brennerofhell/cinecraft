@@ -9,7 +9,7 @@ import net.minecraft.world.item.Item;
 /**
  * Memory card of the digital camera. It is an Exposure film roll in color (so the camera stores frames on it the
  * normal way) with a clean digital look: low sensitivity, almost no grain. Only the digital camera accepts it,
- * the analog camera only takes real film rolls (see {@link CineCameraItem#defineAttachments()}).
+ * the analog camera only shoots with real film rolls (see {@link CineCameraItem#acceptsMedium(boolean)}).
  */
 public class MemoryCardItem extends FilmRollItem {
     public static final int BAR_COLOR = 0x4FA3FF;

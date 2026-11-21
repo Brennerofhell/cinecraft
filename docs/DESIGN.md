@@ -44,8 +44,8 @@ hängen wir uns über Rezepte, Events und Tags an. Eigene Spiellogik nur dort, w
 ## Digitalkamera: Speicherkarte
 
 `cinecraft:memory_card_small` ist ein Exposure-Film (`MemoryCardItem extends FilmRollItem`, Farbe, Sensitivität 1.0,
-kaum Rauschen). Die Digitalkamera nimmt im Film-Slot nur Karten, die Analogkamera nur echte Filmrollen
-(`defineAttachments`). Fotos auf der Karte werden per Rezept `memory_card_readout` (Karte + Redstone) in einen
+kaum Rauschen). Die Digitalkamera fotografiert nur mit Karten, die Analogkamera nur mit echten Filmrollen (Sperre in `canTakePhoto`, nicht im Slot, weil Exposures Anhang-Menü die Original-Attachments braucht)
+Fotos auf der Karte werden per Rezept `memory_card_readout` (Karte + Redstone) in einen
 entwickelten Film umgewandelt, den Exposure normal anzeigt. Karte wird dabei verbraucht (Rezept-Logik von Exposure).
 Ungetestet: Sperre im Anhang-Menü, Auslese-Rezept.
 

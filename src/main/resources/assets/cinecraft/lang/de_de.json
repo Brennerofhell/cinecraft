@@ -85,5 +85,7 @@
   "cinecraft.ponder.clapperboard.text_2": "Schleichen und Rechtsklick startet eine neue Szene. Der Take-Zähler beginnt von vorn",
   "cinecraft.ponder.film_shelf.header": "Film lagern",
   "cinecraft.ponder.film_shelf.text_1": "Das Filmregal lagert Filmrollen und anderes Filmmaterial",
-  "cinecraft.ponder.film_shelf.text_2": "Rechtsklick öffnet die 18 Slots. Andere Items passen nicht hinein"
+  "cinecraft.ponder.film_shelf.text_2": "Rechtsklick öffnet die 18 Slots. Andere Items passen nicht hinein",
+  "item.cinecraft.camera.needs_card": "Braucht eine Speicherkarte, keinen Film",
+  "item.cinecraft.camera.needs_film": "Braucht eine Filmrolle, keine Speicherkarte"
 }

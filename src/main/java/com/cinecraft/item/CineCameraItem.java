@@ -38,35 +38,36 @@ public class CineCameraItem extends io.github.mortuusars.exposure.world.item.cam
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 
-    /** Analog camera: real film rolls only, no memory cards. */
-    @Override
-    protected java.util.List<io.github.mortuusars.exposure.world.item.camera.Attachment<?>> defineAttachments() {
-        return attachmentsWithFilm(stack -> stack.getItem() instanceof io.github.mortuusars.exposure.world.item.FilmRollItem
-                && !(stack.getItem() instanceof MemoryCardItem));
+    /**
+     * Whether the loaded film medium fits this camera: the analog camera takes film rolls, the digital camera
+     * memory cards. (Exposure's attachment menu looks slots up by the original Attachment objects, so the slot
+     * itself cannot be restricted without breaking the menu; the shutter is blocked instead.)
+     */
+    protected boolean acceptsMedium(boolean isMemoryCard) {
+        return !isMemoryCard;
     }
 
-    /** Exposure's attachments (film, flash, lens, filter) with the film slot limited by {@code filmPredicate}. */
-    protected static java.util.List<io.github.mortuusars.exposure.world.item.camera.Attachment<?>> attachmentsWithFilm(
-            java.util.function.Predicate<ItemStack> filmPredicate) {
-        var film = io.github.mortuusars.exposure.world.item.camera.Attachment.FILM;
-        var restricted = new io.github.mortuusars.exposure.world.item.camera.Attachment<>(
-                film.id(), film.component(), filmPredicate, net.minecraft.world.item.Item.class, film.maxCount());
-        return java.util.List.of(restricted,
-                io.github.mortuusars.exposure.world.item.camera.Attachment.FLASH,
-                io.github.mortuusars.exposure.world.item.camera.Attachment.LENS,
-                io.github.mortuusars.exposure.world.item.camera.Attachment.FILTER);
+    private boolean mediumFits(ItemStack camera) {
+        ItemStack film = getFilmAttachment().get(camera).getForReading();
+        if (film.isEmpty()) return true; // empty slot: Exposure reports "no film" itself
+        return acceptsMedium(film.getItem() instanceof MemoryCardItem);
     }
 
     /** A camera with the lens cap on cannot shoot. */
     @Override
     public boolean canTakePhoto(io.github.mortuusars.exposure.world.entity.CameraHolder holder, ItemStack stack) {
-        return !CameraState.hasLensCap(stack) && super.canTakePhoto(holder, stack);
+        return !CameraState.hasLensCap(stack) && mediumFits(stack) && super.canTakePhoto(holder, stack);
     }
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, java.util.List<net.minecraft.network.chat.Component> tooltip,
                                 net.minecraft.world.item.TooltipFlag flag) {
         super.appendHoverText(stack, context, tooltip, flag);
+        if (!mediumFits(stack)) {
+            tooltip.add(net.minecraft.network.chat.Component.translatable(acceptsMedium(true)
+                    ? "item.cinecraft.camera.needs_card" : "item.cinecraft.camera.needs_film")
+                    .withStyle(net.minecraft.ChatFormatting.RED));
+        }
         if (CameraState.hasLensCap(stack)) {
             tooltip.add(net.minecraft.network.chat.Component.translatable("item.cinecraft.lens_cap.tooltip")
                     .withStyle(net.minecraft.ChatFormatting.GRAY));

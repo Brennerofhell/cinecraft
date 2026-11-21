@@ -85,5 +85,7 @@
   "cinecraft.ponder.clapperboard.text_2": "Sneak and right-click to start a new scene. The take counter starts over",
   "cinecraft.ponder.film_shelf.header": "Storing Film",
   "cinecraft.ponder.film_shelf.text_1": "The Film Shelf stores film rolls and other film material",
-  "cinecraft.ponder.film_shelf.text_2": "Right-click it to open its 18 slots. Other items do not fit"
+  "cinecraft.ponder.film_shelf.text_2": "Right-click it to open its 18 slots. Other items do not fit",
+  "item.cinecraft.camera.needs_card": "Needs a memory card, not film",
+  "item.cinecraft.camera.needs_film": "Needs a film roll, not a memory card"
 }
