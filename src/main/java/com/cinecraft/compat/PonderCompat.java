@@ -38,6 +38,12 @@ public final class PonderCompat implements PonderPlugin {
         helper.addStoryBoard(ModItems.ANALOG_CAMERA.getId(), "camera", PonderCompat::camera);
         helper.addStoryBoard(ModItems.DIGITAL_CAMERA.getId(), "digital_camera", PonderCompat::digitalCamera);
         helper.addStoryBoard(ModItems.CLAPPERBOARD.getId(), "clapperboard", PonderCompat::clapperboard);
+
+        for (PonderScenes.Entry entry : PonderScenes.ENTRIES) {
+            var components = entry.components().stream()
+                    .map(id -> ResourceLocation.fromNamespaceAndPath(CineCraft.MOD_ID, id)).toList();
+            helper.forComponents(components).addStoryBoard(entry.id(), (scene, util) -> simpleScene(scene, util, entry));
+        }
     }
 
     /** Structure: 5x5 floor, screen at (2,1,0), projector at (2,1,3) facing the screen. */
@@ -149,5 +155,23 @@ public final class PonderCompat implements PonderPlugin {
                 .pointAt(util.vector().centerOf(shelf))
                 .placeNearTarget();
         scene.idle(90);
+    }
+
+    /** One block in the middle of the floor and the entry's texts one after another. */
+    private static void simpleScene(SceneBuilder scene, SceneBuildingUtil util, PonderScenes.Entry entry) {
+        scene.title(entry.id(), entry.title());
+        scene.configureBasePlate(0, 0, 5);
+        scene.showBasePlate();
+        scene.idle(5);
+        scene.world().showSection(util.select().layersFrom(1), Direction.DOWN);
+        scene.idle(10);
+        BlockPos block = util.grid().at(2, 1, 2);
+        for (String text : entry.texts()) {
+            scene.overlay().showText(100)
+                    .text(text)
+                    .pointAt(util.vector().topOf(block))
+                    .placeNearTarget();
+            scene.idle(110);
+        }
     }
 }
