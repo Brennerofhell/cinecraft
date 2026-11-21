@@ -1,0 +1,8 @@
+{
+  "predicate": {
+    "items": "cinecraft:uv_filter"
+  },
+  "attachment_texture": "exposure:textures/gui/filter/glass.png",
+  "attachment_tint": "D9E8FF",
+  "shader": "exposure:shaders/post/crisp.json"
+}

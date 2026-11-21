@@ -19,11 +19,11 @@ Dunkelkammer, Filmproduktion und Kino-Projektion. Namespace `cinecraft`, Lizenz 
 > (Kamera, Entwickeln, Projektion); die Items sind Platzhalter ohne Verhalten. Im Spiel wurde bisher **nichts**
 > visuell geprüft, nur per Blockbench-Vorschau und `./gradlew compileJava`.
 
-[![Download](https://img.shields.io/github/v/release/Brennerofhell/exposure-revanced-photography?label=Download&style=for-the-badge&color=2ea44f&logo=github)](https://github.com/Brennerofhell/exposure-revanced-photography/releases/latest)
+[![Download](https://img.shields.io/github/v/release/Brennerofhell/cinecraft?label=Download&style=for-the-badge&color=2ea44f&logo=github)](https://github.com/Brennerofhell/cinecraft/releases/latest)
 
 ## Download und Installation
 
-1. **[Neueste `cinecraft-*.jar` herunterladen](https://github.com/Brennerofhell/exposure-revanced-photography/releases/latest)** (unter "Assets").
+1. **[Neueste `cinecraft-*.jar` herunterladen](https://github.com/Brennerofhell/cinecraft/releases/latest)** (unter "Assets").
 2. Zusätzlich nötig (jeweils die Version für NeoForge 1.21.1):
    - [Exposure](https://modrinth.com/mod/exposure) 1.9.21 oder neuer
    - [GeckoLib](https://modrinth.com/mod/geckolib) 4.8 oder neuer (getestet gegen 4.9.3)

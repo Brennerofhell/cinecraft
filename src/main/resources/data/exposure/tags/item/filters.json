@@ -1,0 +1,10 @@
+{
+  "values": [
+    "cinecraft:uv_filter",
+    "cinecraft:polarizing_filter",
+    "cinecraft:nd_filter",
+    "cinecraft:variable_nd_filter",
+    "cinecraft:mist_filter",
+    "cinecraft:star_filter"
+  ]
+}

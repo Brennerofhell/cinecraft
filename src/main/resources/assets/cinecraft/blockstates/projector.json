@@ -1,17 +1,32 @@
 {
   "variants": {
-    "facing=north": {
+    "facing=north,lit=false": {
       "model": "cinecraft:block/projector"
     },
-    "facing=east": {
+    "facing=north,lit=true": {
+      "model": "cinecraft:block/projector"
+    },
+    "facing=east,lit=false": {
       "model": "cinecraft:block/projector",
       "y": 90
     },
-    "facing=south": {
+    "facing=east,lit=true": {
+      "model": "cinecraft:block/projector",
+      "y": 90
+    },
+    "facing=south,lit=false": {
       "model": "cinecraft:block/projector",
       "y": 180
     },
-    "facing=west": {
+    "facing=south,lit=true": {
+      "model": "cinecraft:block/projector",
+      "y": 180
+    },
+    "facing=west,lit=false": {
+      "model": "cinecraft:block/projector",
+      "y": 270
+    },
+    "facing=west,lit=true": {
       "model": "cinecraft:block/projector",
       "y": 270
     }

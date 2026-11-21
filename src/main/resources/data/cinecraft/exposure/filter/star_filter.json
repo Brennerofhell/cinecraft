@@ -1,0 +1,8 @@
+{
+  "predicate": {
+    "items": "cinecraft:star_filter"
+  },
+  "attachment_texture": "exposure:textures/gui/filter/glass.png",
+  "attachment_tint": "DDEEFF",
+  "shader": "cinecraft:shaders/post/star_filter.json"
+}

@@ -54,5 +54,7 @@
   "item.cinecraft.shutter_mechanism": "Verschlussmechanismus",
   "item.cinecraft.camera_circuit": "Kameraplatine",
   "item.cinecraft.stabilization_module": "Stabilisierungsmodul",
-  "container.cinecraft.developer_station": "Entwicklerstation"
+  "container.cinecraft.developer_station": "Entwicklerstation",
+  "item.cinecraft.clapperboard.take": "Szene %1$s · Take %2$s",
+  "item.cinecraft.clapperboard.new_scene": "Neue Szene %1$s"
 }

@@ -1,6 +1,5 @@
 package com.cinecraft.compat;
 
-import com.cinecraft.item.GearGeoItem;
 import io.github.mortuusars.exposure.neoforge.api.event.FrameAddedEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -21,8 +20,8 @@ public final class ExposureCompat {
         if (!(holder instanceof LivingEntity living)) return;
         for (InteractionHand hand : InteractionHand.values()) {
             ItemStack stack = living.getItemInHand(hand);
-            if (stack.getItem() instanceof GearGeoItem gear && gear.id().endsWith("camera")) {
-                gear.playAction(living, stack);
+            if (stack.getItem() instanceof com.cinecraft.item.CineCameraItem cam) {
+                cam.playAction(living, stack);
             }
         }
     }

@@ -1,0 +1,9 @@
+{
+  "predicate": {
+    "items": "cinecraft:precision_lens"
+  },
+  "focal_range": {
+    "min": 85,
+    "max": 300
+  }
+}

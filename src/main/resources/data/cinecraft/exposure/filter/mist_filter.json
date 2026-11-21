@@ -1,0 +1,8 @@
+{
+  "predicate": {
+    "items": "cinecraft:mist_filter"
+  },
+  "attachment_texture": "exposure:textures/gui/filter/glass.png",
+  "attachment_tint": "BBBBCC",
+  "shader": "cinecraft:shaders/post/mist_filter.json"
+}

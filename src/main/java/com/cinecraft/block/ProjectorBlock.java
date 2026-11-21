@@ -4,6 +4,13 @@ import com.cinecraft.registry.ModBlockEntities;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.BaseEntityBlock;
@@ -23,7 +30,8 @@ public class ProjectorBlock extends BaseEntityBlock {
 
     public ProjectorBlock(Properties properties) {
         super(properties);
-        registerDefaultState(stateDefinition.any().setValue(HorizontalDirectionalBlock.FACING, Direction.NORTH));
+        registerDefaultState(stateDefinition.any().setValue(HorizontalDirectionalBlock.FACING, Direction.NORTH)
+                .setValue(BlockStateProperties.LIT, false));
     }
 
     @Override
@@ -33,12 +41,14 @@ public class ProjectorBlock extends BaseEntityBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(HorizontalDirectionalBlock.FACING);
+        builder.add(HorizontalDirectionalBlock.FACING, BlockStateProperties.LIT);
     }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext ctx) {
-        return defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, ctx.getHorizontalDirection().getOpposite());
+        return defaultBlockState()
+                .setValue(HorizontalDirectionalBlock.FACING, ctx.getHorizontalDirection().getOpposite())
+                .setValue(BlockStateProperties.LIT, ctx.getLevel().hasNeighborSignal(ctx.getClickedPos()));
     }
 
     @Override
@@ -54,5 +64,30 @@ public class ProjectorBlock extends BaseEntityBlock {
     @Override
     protected RenderShape getRenderShape(BlockState state) {
         return RenderShape.ENTITYBLOCK_ANIMATED;
+    }
+
+    /** Right-click toggles the projector on/off. */
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
+        if (!level.isClientSide) {
+            setLit(level, pos, state, !state.getValue(BlockStateProperties.LIT));
+        }
+        return InteractionResult.sidedSuccess(level.isClientSide);
+    }
+
+    /** Redstone power switches the projector on, losing power switches it off. */
+    @Override
+    protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos fromPos, boolean moved) {
+        if (level.isClientSide) return;
+        boolean powered = level.hasNeighborSignal(pos);
+        if (powered != state.getValue(BlockStateProperties.LIT)) {
+            setLit(level, pos, state, powered);
+        }
+    }
+
+    private static void setLit(Level level, BlockPos pos, BlockState state, boolean lit) {
+        level.setBlock(pos, state.setValue(BlockStateProperties.LIT, lit), Block.UPDATE_ALL);
+        level.playSound(null, pos, lit ? SoundEvents.LEVER_CLICK : SoundEvents.COMPARATOR_CLICK,
+                SoundSource.BLOCKS, 0.6f, lit ? 1.0f : 0.8f);
     }
 }

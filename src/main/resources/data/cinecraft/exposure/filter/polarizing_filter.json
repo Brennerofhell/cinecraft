@@ -1,0 +1,8 @@
+{
+  "predicate": {
+    "items": "cinecraft:polarizing_filter"
+  },
+  "attachment_texture": "exposure:textures/gui/filter/glass.png",
+  "attachment_tint": "8899AA",
+  "shader": "cinecraft:shaders/post/polarizing_filter.json"
+}

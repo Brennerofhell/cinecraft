@@ -21,4 +21,8 @@ public final class ModBlockEntities {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DeveloperStationBlockEntity>> DEVELOPER_STATION =
             TYPES.register("developer_station", () -> BlockEntityType.Builder
                     .of(DeveloperStationBlockEntity::new, ModBlocks.DEVELOPER_STATION.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<com.cinecraft.block.FilmShelfBlockEntity>> FILM_SHELF =
+            TYPES.register("film_shelf", () -> BlockEntityType.Builder
+                    .of(com.cinecraft.block.FilmShelfBlockEntity::new, ModBlocks.FILM_SHELF.get()).build(null));
 }
