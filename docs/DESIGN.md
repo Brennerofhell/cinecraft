@@ -41,6 +41,14 @@ hängen wir uns über Rezepte, Events und Tags an. Eigene Spiellogik nur dort, w
 3. Vor Stufe 3 klären, was Exposure für Erweiterungen anbietet (Dokumentation und `docs/for_developers` im Repo lesen).
 4. Stufe 4 und 5 sind eigene Großprojekte; Plan in `docs/ARCHITECTURE.md` (MJPEG-Container, Netzwerk, Wiedergabe).
 
+## Digitalkamera: Speicherkarte
+
+`cinecraft:memory_card_small` ist ein Exposure-Film (`MemoryCardItem extends FilmRollItem`, Farbe, Sensitivität 1.0,
+kaum Rauschen). Die Digitalkamera nimmt im Film-Slot nur Karten, die Analogkamera nur echte Filmrollen
+(`defineAttachments`). Fotos auf der Karte werden per Rezept `memory_card_readout` (Karte + Redstone) in einen
+entwickelten Film umgewandelt, den Exposure normal anzeigt. Karte wird dabei verbraucht (Rezept-Logik von Exposure).
+Ungetestet: Sperre im Anhang-Menü, Auslese-Rezept.
+
 ## Fahrplan (Stand 2026-11-21)
 
 | Schritt | Inhalt | Stand |

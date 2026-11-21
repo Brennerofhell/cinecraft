@@ -1,0 +1,16 @@
+{
+  "type": "exposure:film_developing",
+  "film": {
+    "item": "cinecraft:memory_card_small"
+  },
+  "ingredients": [
+    [
+      {
+        "item": "minecraft:redstone"
+      }
+    ]
+  ],
+  "result": {
+    "id": "exposure:developed_color_film"
+  }
+}

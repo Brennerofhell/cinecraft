@@ -12,9 +12,9 @@ public final class ModItems {
 
     // Placeholder-free: simple items without behaviour yet. Camera logic arrives in Phase 3.
     public static final DeferredItem<Item> DIGITAL_CAMERA = ITEMS.registerItem("digital_camera",
-            props -> new com.cinecraft.item.CineCameraItem(props, "digital_camera", "shoot"), new Item.Properties().stacksTo(1));
-    public static final DeferredItem<Item> MEMORY_CARD_SMALL = ITEMS.registerSimpleItem("memory_card_small",
-            new Item.Properties().stacksTo(16));
+            com.cinecraft.item.DigitalCameraItem::new, new Item.Properties().stacksTo(1));
+    public static final DeferredItem<Item> MEMORY_CARD_SMALL = ITEMS.registerItem("memory_card_small",
+            com.cinecraft.item.MemoryCardItem::new, com.cinecraft.item.MemoryCardItem.properties());
     public static final DeferredItem<Item> ANALOG_CAMERA = ITEMS.registerItem("analog_camera",
             props -> new com.cinecraft.item.CineCameraItem(props, "analog_camera", "shoot"), new Item.Properties().stacksTo(1));
     public static final DeferredItem<Item> FILM_ROLL = ITEMS.registerSimpleItem("film_roll",

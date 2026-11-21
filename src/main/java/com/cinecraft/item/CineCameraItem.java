@@ -38,6 +38,25 @@ public class CineCameraItem extends io.github.mortuusars.exposure.world.item.cam
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
 
+    /** Analog camera: real film rolls only, no memory cards. */
+    @Override
+    protected java.util.List<io.github.mortuusars.exposure.world.item.camera.Attachment<?>> defineAttachments() {
+        return attachmentsWithFilm(stack -> stack.getItem() instanceof io.github.mortuusars.exposure.world.item.FilmRollItem
+                && !(stack.getItem() instanceof MemoryCardItem));
+    }
+
+    /** Exposure's attachments (film, flash, lens, filter) with the film slot limited by {@code filmPredicate}. */
+    protected static java.util.List<io.github.mortuusars.exposure.world.item.camera.Attachment<?>> attachmentsWithFilm(
+            java.util.function.Predicate<ItemStack> filmPredicate) {
+        var film = io.github.mortuusars.exposure.world.item.camera.Attachment.FILM;
+        var restricted = new io.github.mortuusars.exposure.world.item.camera.Attachment<>(
+                film.id(), film.component(), filmPredicate, net.minecraft.world.item.Item.class, film.maxCount());
+        return java.util.List.of(restricted,
+                io.github.mortuusars.exposure.world.item.camera.Attachment.FLASH,
+                io.github.mortuusars.exposure.world.item.camera.Attachment.LENS,
+                io.github.mortuusars.exposure.world.item.camera.Attachment.FILTER);
+    }
+
     public String id() {
         return id;
     }
