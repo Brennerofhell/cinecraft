@@ -52,11 +52,11 @@ public class CineCameraItem extends io.github.mortuusars.exposure.world.item.cam
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
-            private GearItemRenderer renderer;
+            private GearItemRenderer<CineCameraItem> renderer;
 
             @Override
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-                if (renderer == null) renderer = new GearItemRenderer(id);
+                if (renderer == null) renderer = new GearItemRenderer<>(id);
                 return renderer;
             }
         });

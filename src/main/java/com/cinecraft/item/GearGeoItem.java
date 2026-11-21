@@ -61,11 +61,11 @@ public class GearGeoItem extends Item implements GeoItem {
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
-            private GearItemRenderer renderer;
+            private GearItemRenderer<GearGeoItem> renderer;
 
             @Override
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-                if (renderer == null) renderer = new GearItemRenderer(id);
+                if (renderer == null) renderer = new GearItemRenderer<>(id);
                 return renderer;
             }
         });
