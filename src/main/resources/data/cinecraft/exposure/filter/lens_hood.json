@@ -1,0 +1,8 @@
+{
+  "predicate": {
+    "items": "cinecraft:lens_hood"
+  },
+  "attachment_texture": "exposure:textures/gui/filter/glass.png",
+  "attachment_tint": "222222",
+  "shader": "cinecraft:shaders/post/lens_hood.json"
+}

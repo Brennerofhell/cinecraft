@@ -14,6 +14,18 @@ public class BatteryItem extends Item {
         super(properties);
     }
 
+    /** A battery grip anywhere in the inventory doubles the charge. */
+    private static boolean hasGrip(Player player) {
+        for (ItemStack stack : player.getInventory().items) {
+            if (stack.is(GRIP_TAG)) return true;
+        }
+        return false;
+    }
+
+    private static final net.minecraft.tags.TagKey<Item> GRIP_TAG = net.minecraft.tags.TagKey.create(
+            net.minecraft.core.registries.Registries.ITEM,
+            net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("cinecraft", "battery_grips"));
+
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack battery = player.getItemInHand(hand);
@@ -27,10 +39,10 @@ public class BatteryItem extends Item {
                 player.displayClientMessage(Component.translatable("item.cinecraft.camera_battery.not_empty"), true);
                 return InteractionResultHolder.fail(battery);
             }
-            CameraState.setCharge(camera, CameraState.MAX_CHARGE);
+            int shots = hasGrip(player) ? CameraState.GRIP_MAX_CHARGE : CameraState.MAX_CHARGE;
+            CameraState.setCharge(camera, shots);
             if (!player.getAbilities().instabuild) battery.shrink(1);
-            player.displayClientMessage(Component.translatable("item.cinecraft.camera_battery.charged",
-                    CameraState.MAX_CHARGE), true);
+            player.displayClientMessage(Component.translatable("item.cinecraft.camera_battery.charged", shots), true);
         }
         return InteractionResultHolder.sidedSuccess(battery, level.isClientSide());
     }

@@ -53,6 +53,14 @@ public class CineCameraItem extends io.github.mortuusars.exposure.world.item.cam
         return acceptsMedium(film.getItem() instanceof MemoryCardItem);
     }
 
+    /** A caged camera recovers twice as fast after a shot. */
+    @Override
+    public int calculateCooldownAfterShot(ItemStack stack,
+                                          io.github.mortuusars.exposure.world.camera.capture.CaptureParameters params) {
+        int cooldown = super.calculateCooldownAfterShot(stack, params);
+        return CameraState.hasCage(stack) ? cooldown / 2 : cooldown;
+    }
+
     /** A camera with the lens cap on cannot shoot. */
     @Override
     public boolean canTakePhoto(io.github.mortuusars.exposure.world.entity.CameraHolder holder, ItemStack stack) {
@@ -67,6 +75,10 @@ public class CineCameraItem extends io.github.mortuusars.exposure.world.item.cam
             tooltip.add(net.minecraft.network.chat.Component.translatable(acceptsMedium(true)
                     ? "item.cinecraft.camera.needs_card" : "item.cinecraft.camera.needs_film")
                     .withStyle(net.minecraft.ChatFormatting.RED));
+        }
+        if (CameraState.hasCage(stack)) {
+            tooltip.add(net.minecraft.network.chat.Component.translatable("item.cinecraft.camera_cage.tooltip")
+                    .withStyle(net.minecraft.ChatFormatting.GRAY));
         }
         if (CameraState.hasLensCap(stack)) {
             tooltip.add(net.minecraft.network.chat.Component.translatable("item.cinecraft.lens_cap.tooltip")

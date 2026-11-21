@@ -10,7 +10,7 @@ final class PonderScenes {
     record Entry(String id, String title, List<String> components, List<String> texts) {}
 
     static final List<Entry> ENTRIES = List.of(
-            new Entry("tripod", "The Tripod", List.of("tripod"), List.of("The Tripod is a camera stand for decoration.")),
+            new Entry("tripod", "The Tripod", List.of("tripod"), List.of("The Tripod is a camera stand for decoration. Turn it with a Tripod Head.")),
             new Entry("screen", "The Projection Screen", List.of("screen"), List.of("The Projection Screen is the surface for the Film Projector. Place it facing the projector.",
                     "Projecting films onto it is planned for a later version.")),
             new Entry("darkroom_safelight", "The Darkroom Safelight", List.of("darkroom_safelight"), List.of("The Safelight gives off a dim red light, just right for a darkroom.")),
@@ -27,6 +27,13 @@ final class PonderScenes {
             new Entry("memory_card_small", "The Memory Card", List.of("memory_card_small"), List.of("The Digital Camera stores its photos on a Memory Card.",
                     "To view the photos, craft the card together with Redstone. You get developed film that Exposure can show.")),
             new Entry("camera_flash", "The Camera Flash", List.of("camera_flash"), List.of("Put the Camera Flash into the flash slot of a camera. Open the slot with Shift + right-click on the camera.")),
+            new Entry("camera_cage", "The Camera Cage", List.of("camera_cage"), List.of("Hold the Camera Cage in one hand and a camera in the other, then use the cage to rig it or take it off.",
+                    "A caged camera recovers twice as fast after each shot.")),
+            new Entry("battery_grip", "The Battery Grip", List.of("battery_grip"), List.of("Keep a Battery Grip in your inventory and a Camera Battery charges 200 photos instead of 100.")),
+            new Entry("lens_hood", "The Lens Hood", List.of("lens_hood"), List.of("Put the Lens Hood into the filter slot of a camera. It cuts stray light and gives photos a little more contrast.")),
+            new Entry("camera_backpack", "The Camera Backpack", List.of("camera_backpack"), List.of("Right-click the Camera Backpack to open 9 slots for photography gear: film, cards, filters, lenses, flashes and batteries.")),
+            new Entry("tripod_head", "The Tripod Head", List.of("tripod_head"), List.of("Use the Tripod Head on a Tripod to turn it a quarter turn. Sneak to turn it the other way.")),
+            new Entry("directors_megaphone", "The Director's Megaphone", List.of("directors_megaphone"), List.of("Right-click the Megaphone to call \"Action!\" to everyone nearby. Sneak and right-click calls \"Cut!\".")),
             new Entry("filters", "Camera Filters", List.of("uv_filter", "polarizing_filter", "nd_filter", "variable_nd_filter", "mist_filter", "star_filter"), List.of("Filters change the look of a photo. Put one into the filter slot of a camera (Shift + right-click on the camera).",
                     "UV: sharper. Polarizing: more contrast. ND: darker. Variable ND: much darker. Black Mist: soft and hazy. Star: brighter.")),
             new Entry("lenses", "Camera Lenses", List.of("lens", "precision_lens"), List.of("Lenses change the zoom range of a camera. Put one into the lens slot (Shift + right-click on the camera).",

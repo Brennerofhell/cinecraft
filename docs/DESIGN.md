@@ -75,3 +75,18 @@ Reihenfolge: 0, dann A, B, C. B und C lassen sich ohne Spieltest kaum prüfen.
 - Sollen die Zubehör-Items Pflicht werden (Foto braucht Filter) oder nur Bonus bleiben?
 - Soll die Entwicklerstation Exposures Trank-Rezepte ersetzen oder daneben laufen?
 - Wie weit soll die Filmproduktion gehen (nur Klappe/Take-Markierung oder echte Videoaufnahme)?
+
+## Funktionsstand der Items (Stand 2026-11-21, alles ungetestet im Spiel)
+
+| Item | Funktion |
+|---|---|
+| `camera_cage` | mit Kamera in der anderen Hand benutzen: Kamera erholt sich nach dem Foto doppelt so schnell |
+| `battery_grip` | im Inventar: Akku lädt 200 statt 100 Fotos |
+| `lens_hood` | als Filter im Filter-Slot: etwas mehr Kontrast (Daten, kein Code) |
+| `camera_backpack` | Rechtsklick: 9 Slots für Foto-Ausrüstung (Inhalt im Item) |
+| `tripod_head` | auf ein Stativ benutzen: dreht es (Schleichen: andere Richtung) |
+| `directors_megaphone` | Rechtsklick ruft Action, Schleichen und Rechtsklick ruft Schnitt (Actionbar, 48 Blöcke) |
+
+Noch ohne Funktion (brauchen die Videoaufnahme aus Stufe 4 oder die Abzug-Pipeline): `shotgun_microphone`, `wireless_microphone`,
+`audio_recorder`, `film_reel`, `video_tape`, `timecode_generator`, `follow_focus`, `photo_paper`, `negative_strip`, `photo_print`,
+`developing_tank`, `darkroom_tongs`. Bauteile (`image_sensor` usw.) sind reine Craft-Zwischenprodukte.

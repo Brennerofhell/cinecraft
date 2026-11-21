@@ -35,6 +35,10 @@ public final class ModGearItems {
             case "remote_shutter" -> items.registerItem(id, com.cinecraft.item.RemoteShutterItem::new, props);
             case "lens_cap" -> items.registerItem(id, com.cinecraft.item.LensCapItem::new, props);
             case "camera_battery" -> items.registerItem(id, com.cinecraft.item.BatteryItem::new, props);
+            case "camera_cage" -> items.registerItem(id, com.cinecraft.item.CageItem::new, props);
+            case "camera_backpack" -> items.registerItem(id, com.cinecraft.item.BackpackItem::new, props);
+            case "tripod_head" -> items.registerItem(id, com.cinecraft.item.TripodHeadItem::new, props);
+            case "directors_megaphone" -> items.registerItem(id, com.cinecraft.item.MegaphoneItem::new, props);
             default -> items.registerSimpleItem(id, props);
         };
         BY_CATEGORY.computeIfAbsent(category, k -> new ArrayList<>()).add(item);
