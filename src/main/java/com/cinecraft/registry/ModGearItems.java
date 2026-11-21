@@ -18,6 +18,11 @@ public final class ModGearItems {
 
     public enum Category { ACCESSORY, FILTER, LAB, PRODUCTION, COMPONENT }
 
+    /** Items that act as a camera strap (see {@link com.cinecraft.compat.StrapEvents}). */
+    public static final net.minecraft.tags.TagKey<Item> STRAP_TAG = net.minecraft.tags.TagKey.create(
+            net.minecraft.core.registries.Registries.ITEM,
+            net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("cinecraft", "camera_straps"));
+
     public static final Map<Category, List<DeferredItem<Item>>> BY_CATEGORY = new EnumMap<>(Category.class);
 
     private static void add(DeferredRegister.Items items, Category category, String id, int stackSize) {
@@ -26,7 +31,9 @@ public final class ModGearItems {
         if (id.equals("developer_bottle") || id.equals("fixer_bottle")) {
             props = props.craftRemainder(net.minecraft.world.item.Items.GLASS_BOTTLE);
         }
-        DeferredItem<Item> item = items.registerSimpleItem(id, props);
+        DeferredItem<Item> item = id.equals("remote_shutter")
+                ? items.registerItem(id, com.cinecraft.item.RemoteShutterItem::new, props)
+                : items.registerSimpleItem(id, props);
         BY_CATEGORY.computeIfAbsent(category, k -> new ArrayList<>()).add(item);
     }
 

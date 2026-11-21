@@ -49,6 +49,16 @@ kaum Rauschen). Die Digitalkamera nimmt im Film-Slot nur Karten, die Analogkamer
 entwickelten Film umgewandelt, den Exposure normal anzeigt. Karte wird dabei verbraucht (Rezept-Logik von Exposure).
 Ungetestet: Sperre im Anhang-Menü, Auslese-Rezept.
 
+## Zubehör-Logik (Stand 2026-11-21, ungetestet)
+
+| Item | Funktion | Umsetzung |
+|---|---|---|
+| `remote_shutter` | löst die erste bereite Kamera im Inventar aus, ohne Sucher (Abklingzeit 2 s) | `RemoteShutterItem`, Exposure `CameraItem.release` |
+| `camera_strap` | solange ein Gurt im Inventar ist, lassen sich Kameras nicht wegwerfen | `StrapEvents` (`ItemTossEvent`), Tag `cinecraft:camera_straps` |
+
+Offen laut Recherche: `lens_cap` und `camera_battery` brauchen ein Mixin auf `CameraItem.canTakePhoto` (kein Pre-Shot-Event),
+`lens_hood` nur kosmetisch ohne Rendering-Mixin.
+
 ## Fahrplan (Stand 2026-11-21)
 
 | Schritt | Inhalt | Stand |

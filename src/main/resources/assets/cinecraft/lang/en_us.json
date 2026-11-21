@@ -56,5 +56,7 @@
   "item.cinecraft.stabilization_module": "Stabilization Module",
   "container.cinecraft.developer_station": "Developer Station",
   "item.cinecraft.clapperboard.take": "Scene %1$s · Take %2$s",
-  "item.cinecraft.clapperboard.new_scene": "New scene %1$s"
+  "item.cinecraft.clapperboard.new_scene": "New scene %1$s",
+  "item.cinecraft.remote_shutter.no_camera": "No camera ready in your inventory",
+  "item.cinecraft.camera_strap.held": "Camera held by the strap"
 }

@@ -24,6 +24,7 @@ public class CineCraft {
         ModCreativeTabs.TABS.register(modBus);
 
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(com.cinecraft.compat.ExposureCompat.class);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(com.cinecraft.compat.StrapEvents.class);
 
         container.registerConfig(Type.SERVER, ModConfig.SERVER_SPEC);
         container.registerConfig(Type.CLIENT, ModConfig.CLIENT_SPEC);
