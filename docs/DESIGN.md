@@ -88,7 +88,7 @@ Reihenfolge: 0, dann A, B, C. B und C lassen sich ohne Spieltest kaum prüfen.
 | `directors_megaphone` | Rechtsklick ruft Action, Schleichen und Rechtsklick ruft Schnitt (Actionbar, 48 Blöcke) |
 
 Noch ohne Funktion (brauchen die Videoaufnahme aus Stufe 4 oder die Abzug-Pipeline): `shotgun_microphone`, `wireless_microphone`,
-`audio_recorder`, `film_reel`, `video_tape`, `timecode_generator`, `follow_focus`, `photo_paper`, `negative_strip`, `photo_print`,
+`audio_recorder`, `film_reel`, `video_tape`, `photo_paper`, `negative_strip`, `photo_print`,
 `developing_tank`, `darkroom_tongs`. Bauteile (`image_sensor` usw.) sind reine Craft-Zwischenprodukte.
 
 ## Stufe 4, Filmaufnahme (Stand 2026-11-21, MVP, ungetestet im Spiel)
@@ -100,7 +100,8 @@ Noch ohne Funktion (brauchen die Videoaufnahme aus Stufe 4 oder die Abzug-Pipeli
 - **Server:** `FilmStore` prüft Größe, Reihenfolge, SHA-256 und Dateiformat, schreibt über Temp-Datei und legt unter
   `<Welt>/cinecraft/films/<UUID>.ccf` ab. Grenzen: `maxFilmSeconds`, `maxFilmBytes`, `totalStorageBytes`. Ein Upload pro Spieler.
 - **Item:** Das Band speichert nur die Film-ID (`cinecraft:film_id`) und die Länge in Sekunden.
-- **Noch offen:** Ton (Mikrofone, Audiorecorder), Timecode, Schärfenzug, Klappen-Markierung im Film und vor allem die
+- **Aufnahme-Zubehör:** `timecode_generator` im Inventar brennt einen Timecode (HH:MM:SS:FF) unten links ins Bild, `follow_focus` legt Kinobalken (2,39:1) darüber. Beides wird im Worker-Thread beim Kodieren gezeichnet (ungetestet).
+- **Noch offen:** Ton (Mikrofone, Audiorecorder), Klappen-Markierung im Film und vor allem die
   Wiedergabe (Stufe 5: Projektor und Leinwand zeigen den Film).
 
 ## Stufe 5, Wiedergabe (Stand 2026-11-21, MVP, ungetestet im Spiel)

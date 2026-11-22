@@ -12,6 +12,9 @@ import com.mojang.blaze3d.platform.NativeImage;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Screenshot;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.world.InteractionHand;
@@ -31,6 +34,9 @@ import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
 import javax.imageio.ImageWriter;
 import javax.imageio.stream.MemoryCacheImageOutputStream;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.nio.file.Files;
@@ -174,7 +180,11 @@ public final class FilmRecorder {
             final int w = outW;
             final int h = outH;
             height = outH;
-            frames.add(ENCODER.submit(() -> jpeg(rgb, w, h)));
+            final boolean timecode = carries(mc, "timecode_generator");
+            final boolean bars = carries(mc, "follow_focus");
+            final int index = frames.size();
+            final int rate = fps;
+            frames.add(ENCODER.submit(() -> jpeg(rgb, w, h, timecode ? index : -1, rate, bars)));
         } catch (RuntimeException e) {
             CineCraft.LOGGER.warn("Frame capture failed, stopping recording", e);
             recording = false;
@@ -182,9 +192,42 @@ public final class FilmRecorder {
         }
     }
 
-    private static byte[] jpeg(int[] rgb, int w, int h) throws java.io.IOException {
+    /** True if the player carries the given CineCraft item anywhere in the inventory (hotbar, main, offhand). */
+    private static boolean carries(Minecraft mc, String path) {
+        if (mc.player == null) return false;
+        Item item = BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(CineCraft.MOD_ID, path));
+        return mc.player.getInventory().contains(new ItemStack(item));
+    }
+
+    private static byte[] jpeg(int[] rgb, int w, int h, int timecodeFrame, int rate, boolean bars) throws java.io.IOException {
         BufferedImage img = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
         img.setRGB(0, 0, w, h, rgb, 0, w);
+        if (bars || timecodeFrame >= 0) {
+            Graphics2D g = img.createGraphics();
+            try {
+                if (bars) {
+                    // letterbox to 2.39:1
+                    int barH = Math.max(0, (h - Math.round(w / 2.39f)) / 2);
+                    g.setColor(Color.BLACK);
+                    g.fillRect(0, 0, w, barH);
+                    g.fillRect(0, h - barH, w, barH);
+                }
+                if (timecodeFrame >= 0) {
+                    int total = timecodeFrame / Math.max(1, rate);
+                    String tc = String.format("%02d:%02d:%02d:%02d", total / 3600, total / 60 % 60, total % 60,
+                            timecodeFrame % Math.max(1, rate));
+                    g.setFont(new Font(Font.MONOSPACED, Font.BOLD, Math.max(10, h / 18)));
+                    int x = w / 40;
+                    int y = h - Math.max(6, h / 14);
+                    g.setColor(Color.BLACK);
+                    g.drawString(tc, x + 1, y + 1);
+                    g.setColor(Color.WHITE);
+                    g.drawString(tc, x, y);
+                }
+            } finally {
+                g.dispose();
+            }
+        }
         ImageWriter writer = ImageIO.getImageWritersByFormatName("jpg").next();
         try {
             ImageWriteParam param = writer.getDefaultWriteParam();
