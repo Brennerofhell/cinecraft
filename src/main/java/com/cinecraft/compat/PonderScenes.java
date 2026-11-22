@@ -38,6 +38,9 @@ final class PonderScenes {
             new Entry("filters", "Camera Filters", List.of("uv_filter", "polarizing_filter", "nd_filter", "variable_nd_filter", "mist_filter", "star_filter"), List.of("Filters change the look of a photo. Put one into the filter slot of a camera (Shift + right-click on the camera).",
                     "UV: sharper. Polarizing: more contrast. ND: darker. Variable ND: much darker. Black Mist: soft and hazy. Star: brighter.")),
             new Entry("lenses", "Camera Lenses", List.of("lens", "precision_lens"), List.of("Lenses change the zoom range of a camera. Put one into the lens slot (Shift + right-click on the camera).",
-                    "The Camera Lens covers 24 to 135 mm, the Precision Lens 85 to 300 mm."))
+                    "The Camera Lens covers 24 to 135 mm, the Precision Lens 85 to 300 mm.")),
+            new Entry("video_tape", "The Video Tape", List.of("video_tape"), List.of("The Video Tape records films. Hold an empty tape and press the record key (K) to start and stop filming.", "The server must allow recording (server config), and films have a length limit. The tape stores the finished film.", "Put a recorded tape into a Film Projector to play the film on a Projection Screen.")),
+            new Entry("timecode_generator", "The Timecode Generator", List.of("timecode_generator"), List.of("Keep a Timecode Generator in your inventory while recording and the film shows a running timecode (hours:minutes:seconds:frames) at the bottom left.")),
+            new Entry("follow_focus", "The Follow Focus System", List.of("follow_focus"), List.of("Keep a Follow Focus System in your inventory while recording and the film gets cinematic black bars (2.39:1)."))
     );
 }

@@ -155,5 +155,14 @@
   "item.cinecraft.video_tape.disabled": "Aufnahme ist auf diesem Server ausgeschaltet",
   "item.cinecraft.video_tape.no_tape": "Kein leeres Videoband in deinen Händen",
   "cinecraft.ponder.projector.text_4": "Rechtsklick mit einem bespielten Videoband legt es ein. Der Film läuft auf der Projektionsleinwand, auf die er zeigt. Schleichen und Rechtsklick mit leerer Hand nimmt das Band heraus",
-  "cinecraft.ponder.screen.text_3": "Leinwände nebeneinander und übereinander bilden eine große Leinwand."
+  "cinecraft.ponder.screen.text_3": "Leinwände nebeneinander und übereinander bilden eine große Leinwand.",
+  "cinecraft.ponder.video_tape.header": "Das Videoband",
+  "cinecraft.ponder.video_tape.text_1": "Das Videoband nimmt Filme auf. Nimm ein leeres Band in die Hand und drücke die Aufnahmetaste (K), um zu starten und zu stoppen.",
+  "cinecraft.ponder.video_tape.text_2": "Der Server muss Aufnahmen erlauben (Serverconfig), und Filme haben eine Längengrenze. Das Band speichert den fertigen Film.",
+  "cinecraft.ponder.video_tape.text_3": "Lege ein bespieltes Band in einen Filmprojektor, um den Film auf einer Projektionsleinwand abzuspielen.",
+  "cinecraft.ponder.timecode_generator.header": "Der Timecode-Generator",
+  "cinecraft.ponder.timecode_generator.text_1": "Trage einen Timecode-Generator beim Aufnehmen im Inventar und der Film zeigt unten links einen laufenden Timecode (Stunden:Minuten:Sekunden:Bilder).",
+  "cinecraft.ponder.follow_focus.header": "Das Follow-Focus-System",
+  "cinecraft.ponder.follow_focus.text_1": "Trage ein Follow-Focus-System beim Aufnehmen im Inventar und der Film bekommt schwarze Kinobalken (2,39:1).",
+  "cinecraft.ponder.clapperboard.text_3": "Klappst du während der Aufnahme, blitzt das Bild und die Szenen- und Take-Nummer erscheint im Film."
 }

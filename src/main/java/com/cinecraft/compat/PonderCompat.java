@@ -140,7 +140,8 @@ public final class PonderCompat implements PonderPlugin {
     private static void clapperboard(SceneBuilder scene, SceneBuildingUtil util) {
         tripodScene(scene, util, "clapperboard", "Using the Clapperboard",
                 "Right-click the Clapperboard to clap and count up the take",
-                "Sneak and right-click to start a new scene. The take counter starts over");
+                "Sneak and right-click to start a new scene. The take counter starts over",
+                "While recording, clapping flashes the picture and shows the scene and take number in the film");
     }
 
     private static void filmShelf(SceneBuilder scene, SceneBuildingUtil util) {

@@ -155,5 +155,14 @@
   "item.cinecraft.video_tape.disabled": "Recording is disabled on this server",
   "item.cinecraft.video_tape.no_tape": "No empty video tape in your hands",
   "cinecraft.ponder.projector.text_4": "Right-click with a recorded video tape to insert it. The film plays on the Projection Screen it faces. Sneak and right-click with an empty hand takes the tape out",
-  "cinecraft.ponder.screen.text_3": "Screens placed next to each other and on top of each other form one big screen."
+  "cinecraft.ponder.screen.text_3": "Screens placed next to each other and on top of each other form one big screen.",
+  "cinecraft.ponder.video_tape.header": "The Video Tape",
+  "cinecraft.ponder.video_tape.text_1": "The Video Tape records films. Hold an empty tape and press the record key (K) to start and stop filming.",
+  "cinecraft.ponder.video_tape.text_2": "The server must allow recording (server config), and films have a length limit. The tape stores the finished film.",
+  "cinecraft.ponder.video_tape.text_3": "Put a recorded tape into a Film Projector to play the film on a Projection Screen.",
+  "cinecraft.ponder.timecode_generator.header": "The Timecode Generator",
+  "cinecraft.ponder.timecode_generator.text_1": "Keep a Timecode Generator in your inventory while recording and the film shows a running timecode (hours:minutes:seconds:frames) at the bottom left.",
+  "cinecraft.ponder.follow_focus.header": "The Follow Focus System",
+  "cinecraft.ponder.follow_focus.text_1": "Keep a Follow Focus System in your inventory while recording and the film gets cinematic black bars (2.39:1).",
+  "cinecraft.ponder.clapperboard.text_3": "While recording, clapping flashes the picture and shows the scene and take number in the film."
 }
