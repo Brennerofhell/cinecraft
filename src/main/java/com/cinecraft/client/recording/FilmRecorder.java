@@ -2,6 +2,7 @@ package com.cinecraft.client.recording;
 
 import com.cinecraft.CineCraft;
 import com.cinecraft.config.ModConfig;
+import com.cinecraft.item.SlateMarks;
 import com.cinecraft.item.VideoTapeItem;
 import com.cinecraft.media.CcfFile;
 import com.cinecraft.media.FilmStore;
@@ -82,6 +83,11 @@ public final class FilmRecorder {
     private static int height;
     private static int fps;
     private static List<Future<byte[]>> frames = new ArrayList<>();
+    private static long seenClap;
+    /** Frames left that show the slate text after a clap while recording. */
+    private static int slateFramesLeft;
+    private static boolean flashNext;
+    private static String slateText = "";
 
     @SubscribeEvent
     public static void registerKeys(RegisterKeyMappingsEvent event) {
@@ -117,6 +123,12 @@ public final class FilmRecorder {
         if (!recording) return;
         long now = System.nanoTime();
         if (now - lastFrameNanos < 1_000_000_000L / fps) return;
+        if (SlateMarks.serial() != seenClap) {
+            seenClap = SlateMarks.serial();
+            slateText = "SCENE " + SlateMarks.scene() + "  TAKE " + SlateMarks.take();
+            slateFramesLeft = Math.max(1, fps); // about one second
+            flashNext = true;
+        }
         long pending = frames.stream().filter(f -> !f.isDone()).count();
         if (pending >= MAX_PENDING_FRAMES) return; // encoder cannot keep up: drop this frame
         lastFrameNanos = now;
@@ -148,6 +160,9 @@ public final class FilmRecorder {
         frames = new ArrayList<>();
         startNanos = System.nanoTime();
         lastFrameNanos = 0;
+        seenClap = SlateMarks.serial();
+        slateFramesLeft = 0;
+        flashNext = false;
         recording = true;
         message(mc, "item.cinecraft.video_tape.recording");
     }
@@ -184,7 +199,11 @@ public final class FilmRecorder {
             final boolean bars = carries(mc, "follow_focus");
             final int index = frames.size();
             final int rate = fps;
-            frames.add(ENCODER.submit(() -> jpeg(rgb, w, h, timecode ? index : -1, rate, bars)));
+            final boolean flash = flashNext;
+            flashNext = false;
+            final String slate = slateFramesLeft > 0 ? slateText : null;
+            if (slateFramesLeft > 0) slateFramesLeft--;
+            frames.add(ENCODER.submit(() -> jpeg(rgb, w, h, timecode ? index : -1, rate, bars, flash, slate)));
         } catch (RuntimeException e) {
             CineCraft.LOGGER.warn("Frame capture failed, stopping recording", e);
             recording = false;
@@ -199,12 +218,25 @@ public final class FilmRecorder {
         return mc.player.getInventory().contains(new ItemStack(item));
     }
 
-    private static byte[] jpeg(int[] rgb, int w, int h, int timecodeFrame, int rate, boolean bars) throws java.io.IOException {
+    private static byte[] jpeg(int[] rgb, int w, int h, int timecodeFrame, int rate, boolean bars,
+                               boolean flash, String slate) throws java.io.IOException {
         BufferedImage img = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
         img.setRGB(0, 0, w, h, rgb, 0, w);
-        if (bars || timecodeFrame >= 0) {
+        if (bars || timecodeFrame >= 0 || flash || slate != null) {
             Graphics2D g = img.createGraphics();
             try {
+                if (flash) {
+                    g.setColor(new Color(255, 255, 255, 170));
+                    g.fillRect(0, 0, w, h);
+                }
+                if (slate != null) {
+                    g.setFont(new Font(Font.MONOSPACED, Font.BOLD, Math.max(10, h / 14)));
+                    int sy = Math.max(12, h / 8);
+                    g.setColor(Color.BLACK);
+                    g.drawString(slate, w / 40 + 1, sy + 1);
+                    g.setColor(Color.WHITE);
+                    g.drawString(slate, w / 40, sy);
+                }
                 if (bars) {
                     // letterbox to 2.39:1
                     int barH = Math.max(0, (h - Math.round(w / 2.39f)) / 2);

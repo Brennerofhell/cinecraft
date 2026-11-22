@@ -58,6 +58,10 @@ public class ClapperboardItem extends Item implements GeoItem {
             }
             stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
         }
+        if (level.isClientSide() && !player.isShiftKeyDown()) {
+            var tag = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
+            SlateMarks.clap(Math.max(1, tag.getInt("scene")), tag.getInt("take") + 1);
+        }
         return InteractionResultHolder.sidedSuccess(stack, level.isClientSide());
     }
 

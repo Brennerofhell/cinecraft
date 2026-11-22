@@ -101,7 +101,8 @@ Noch ohne Funktion (brauchen die Videoaufnahme aus Stufe 4 oder die Abzug-Pipeli
   `<Welt>/cinecraft/films/<UUID>.ccf` ab. Grenzen: `maxFilmSeconds`, `maxFilmBytes`, `totalStorageBytes`. Ein Upload pro Spieler.
 - **Item:** Das Band speichert nur die Film-ID (`cinecraft:film_id`) und die Länge in Sekunden.
 - **Aufnahme-Zubehör:** `timecode_generator` im Inventar brennt einen Timecode (HH:MM:SS:FF) unten links ins Bild, `follow_focus` legt Kinobalken (2,39:1) darüber. Beides wird im Worker-Thread beim Kodieren gezeichnet (ungetestet).
-- **Noch offen:** Ton (Mikrofone, Audiorecorder), Klappen-Markierung im Film und vor allem die
+- **Klappe:** Klappt man während der Aufnahme (Rechtsklick mit `clapperboard`), blitzt das Bild kurz weiß auf und zeigt ca. eine Sekunde "SCENE x TAKE y" (ungetestet).
+- **Noch offen:** Ton (Mikrofone, Audiorecorder) und vor allem die
   Wiedergabe (Stufe 5: Projektor und Leinwand zeigen den Film).
 
 ## Stufe 5, Wiedergabe (Stand 2026-11-21, MVP, ungetestet im Spiel)
